@@ -1,0 +1,196 @@
+<!-- "btn-th" 为所有按钮的基类，所有按钮都需引入。 -->
+
+<button class="btn-th btn-green">王捣蛋01</button>
+<button class="btn-th btn-yellow">王捣蛋02</button>
+<button class="btn-th btn-red">王捣蛋03</button>
+<br>
+<br>
+<button class="btn-th btn-green btn-circle">Go04</button>
+<button class="btn-th btn-yellow btn-square">Go05</button>
+<button class="btn-th btn-red btn-square_raidus">Go06</button>
+<br>
+<br>
+
+<button class="btn-th btn-green btn-capsule">王捣蛋07</button>
+<button class="btn-th btn-yellow btn-capsule">王捣蛋08</button>
+<button class="btn-th btn-red  btn-capsule">王捣蛋09</button>
+<br>
+<br>
+
+<button class="btn-th  btn-border_green">王捣蛋10</button>
+<button class="btn-th  btn-border_blue">王捣蛋11</button>
+<button class="btn-th  btn-border_red">王捣蛋12</button>
+
+
+
+<style>
+    .btn-th {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        outline: none;
+        border-radius: 4px;
+    }
+
+    .btn-th:hover {
+        opacity: 0.88;
+        box-shadow: 1px 1px 8px #fff;
+    }
+
+    /* 01-------------------------------------------- */
+
+    .btn-green {
+        color: #fff;
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+    }
+
+    .btn-green:active {
+        background-color: #449d44;
+        border-color: #398439;
+        color: #d8d8d8;
+    }
+
+    /* 02-------------------------------------------- */
+
+    .btn-yellow {
+        color: #fff;
+        background-color: #FEAE1B;
+        border-color: #FEAE1B;
+    }
+
+    .btn-yellow:active {
+        background-color: #ec971f;
+        border-color: #d58512;
+        color: #d8d8d8;
+
+    }
+
+    /* 03-------------------------------------------- */
+
+    .btn-red {
+        color: #fff;
+        background-color: #d9534f;
+        border-color: #d43f3a;
+    }
+
+    .btn-red:active {
+        background-color: #c9302c;
+        border-color: #ac2925;
+        color: #d8d8d8;
+
+    }
+
+    /* 04-------------------------------------------- */
+
+    .btn-th.btn-circle {
+        width: 54px;
+        height: 54px;
+        padding: 0 !important;
+        border-radius: 100%;
+    }
+
+
+    /* 05-------------------------------------------- */
+
+    .btn-th.btn-square {
+        width: 54px;
+        height: 54px;
+        padding: 0 !important;
+        border-radius: 0;
+
+    }
+
+    /* 06-------------------------------------------- */
+
+    .btn-th.btn-square_raidus {
+        width: 54px;
+        height: 54px;
+        padding: 0 !important;
+        border-radius: 6px;
+    }
+
+    /* 07 08 09-------------------------------------------- */
+
+    .btn-th.btn-capsule {
+        border-radius: 200px;
+    }
+
+    /* 10-------------------------------------------- */
+
+    .btn-th.btn-border_green {
+        border-radius: 200px;
+        border: 2px solid #A5DE37;
+        background: #fff;
+        color: #A5DE37;
+        transition: background 0.36s ease;
+    }
+
+    .btn-th.btn-border_green:hover {
+        background: #A5DE37;
+        color: #fff;
+    }
+
+    .btn-th.btn-border_green:active {
+        background-color: #a1d243;
+        border-color: #a1d243;
+        color: #8bc220;
+    }
+
+    /* 11-------------------------------------------- */
+
+    .btn-th.btn-border_blue {
+        border-radius: 0;
+        border: 2px solid #088ef0;
+        background: #fff;
+        color: #088ef0;
+        transition: background 0.36s ease;
+    }
+
+    .btn-th.btn-border_blue:hover {
+        background: #088ef0;
+        color: #fff;
+    }
+
+    .btn-th.btn-border_blue:active {
+        border-color: #0880d7;
+        background: #2798eb;
+        color: #0880d7;
+    }
+
+    /* 12-------------------------------------------- */
+
+    .btn-th.btn-border_red {
+        border-radius: 6px;
+        border: 2px solid #ff2939;
+        background: #fff;
+        color: #ff2939;
+        transition: background 0.36s ease;
+    }
+
+    .btn-th.btn-border_red:hover {
+        background: #ff2939;
+        color: #fff;
+    }
+
+    .btn-th.btn-border_red:active {
+        border-color: #ff1022;
+        background: #f64c59;
+        color: #ff1022;
+    }
+</style>
