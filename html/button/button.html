@@ -1,28 +1,46 @@
 <!-- "btn-th" 为所有按钮的基类，所有按钮都需引入。 -->
+<div style="width: 30%;margin: 0 auto">
+    <div style="text-align: center;padding:10% 10%;box-sizing: border-box;">
+        <button class="btn-th btn-green">王捣蛋01</button>
+        <button class="btn-th btn-yellow">王捣蛋02</button>
+        <button class="btn-th btn-red">王捣蛋03</button>
+        <br>
+        <hr>
+        <br>
+        <button class="btn-th btn-green btn-circle">Go04</button>
+        <button class="btn-th btn-yellow btn-square">Go05</button>
+        <button class="btn-th btn-red btn-square_raidus">Go06</button>
+        <br>
+        <hr>
+        <br>
+        <button class="btn-th btn-green btn-capsule">王捣蛋07</button>
+        <button class="btn-th btn-yellow btn-capsule">王捣蛋08</button>
+        <button class="btn-th btn-red  btn-capsule">王捣蛋09</button>
+        <br>
+        <hr>
+        <br>
+        <button class="btn-th  btn-border_green">王捣蛋10</button>
+        <button class="btn-th  btn-border_blue">王捣蛋11</button>
+        <button class="btn-th  btn-border_red">王捣蛋12</button>
+        <br>
+        <hr>
+        <br>
+        <button class="btn-th  btn-normal">王捣蛋13</button>
+        <button class="btn-th  btn-normal">王捣蛋14</button>
+        <button class="btn-th  btn-normal">王捣蛋15</button>
+        <br>
+        <hr>
+        <br>
+        <div class="btn-group">
+            <!-- 按钮组 -->
+            <button class="btn-th btn-yellow">Option 16</button>
+            <button class="btn-th btn-yellow">Option 16</button>
+            <button class="btn-th btn-yellow">Option 16</button>
+            <button class="btn-th btn-yellow">Option 16</button>
+        </div>
 
-<button class="btn-th btn-green">王捣蛋01</button>
-<button class="btn-th btn-yellow">王捣蛋02</button>
-<button class="btn-th btn-red">王捣蛋03</button>
-<br>
-<br>
-
-<button class="btn-th btn-green btn-circle">Go04</button>
-<button class="btn-th btn-yellow btn-square">Go05</button>
-<button class="btn-th btn-red btn-square_raidus">Go06</button>
-<br>
-<br>
-
-<button class="btn-th btn-green btn-capsule">王捣蛋07</button>
-<button class="btn-th btn-yellow btn-capsule">王捣蛋08</button>
-<button class="btn-th btn-red  btn-capsule">王捣蛋09</button>
-<br>
-<br>
-
-<button class="btn-th  btn-border_green">王捣蛋10</button>
-<button class="btn-th  btn-border_blue">王捣蛋11</button>
-<button class="btn-th  btn-border_red">王捣蛋12</button>
-
-
+    </div>
+</div>
 
 <style>
     .btn-th {
@@ -45,7 +63,6 @@
         background-image: none;
         border: 1px solid transparent;
         outline: none;
-        border-radius: 4px;
     }
 
     .btn-th:hover {
@@ -194,4 +211,51 @@
         background: #f64c59;
         color: #ff1022;
     }
+
+    /* 13+14+15-------------------------------------------- */
+
+    .btn-th.btn-normal {
+        border-radius: 200px;
+        color: #24292e;
+        background-color: #eff3f6;
+        background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
+        border: 1px solid rgba(27, 31, 35, 0.2)
+    }
+
+    .btn-th.btn-normal:active {
+        background-color: #e9ecef;
+        background-image: none;
+        border-color: rgba(27, 31, 35, 0.35);
+        box-shadow: inset 0 0.15em 0.3em rgba(27, 31, 35, 0.15);
+    }
+
+    .btn-th.btn-normal:hover {
+        background-color: #e6ebf1;
+        background-image: linear-gradient(-180deg, #f0f3f6 0%, #e6ebf1 90%);
+        background-position: -.5em;
+        border-color: rgba(27, 31, 35, 0.35);
+    }
+
+    /* --------------------16按钮组------------------------ */
+    .btn-group {
+        font-size: 0;
+    }
+    .btn-group button{
+        font-size: 16px;
+    }
+    .btn-group button:hover{
+        box-shadow: 0 1px #ccc;
+    }
+    .btn-group button~button{
+        border-left:1px solid #fff;
+    }
+    .btn-group button:first-child{
+        border-top-left-radius: 200px;
+        border-bottom-left-radius: 200px;
+    }
+    .btn-group button:last-child{
+        border-top-right-radius: 200px;
+        border-bottom-right-radius: 200px;
+    }
+
 </style>
