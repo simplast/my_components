@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .new_keywords {
+            margin: 0 2px;
+            border-radius: 2px;
+            padding: 0px 12px;
+            background-image: url(images/bg_top.png);
+            background-position: top;
+            background-repeat: repeat-x;
+            background-color: #d7e3e9;
+            display: inline-block;
+            height: 26px;
+            font-size: 14px;
+            border: #8faecc solid 1px;
+            white-space: nowrap;
+            color: #2b5164;
+        }
+
+        .new_keywords:hover {
+            background-color: #ddecf4;
+            color: #2b5164;
+            border: #8faecc solid 1px;
+            text-shadow: #fff 0px 1px 0;
+        }
+
+        .common_table_style {
+            width: 100%;
+            text-align: center;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            overflow: hidden;
+            background-color: #fff;
+            font-family: "Microsoft YaHei";
+            color: #0d3841;
+            box-shadow: 2px 2px 3px #999;
+           border-left: 1px inset #ffffff;
+        }
+
+        .common_table_style tr {
+            font-size: 1.5em;
+        }
+
+        .common_table_style>tbody>tr:first-child {
+            background-color: #f1f1f1;
+            font-size: 1.667em;
+        }
+
+        .common_table_style th {
+            padding: 0.65em 0;
+            text-align: center;
+            background-color: rgba(121, 139, 155, 0.4);
+        }
+
+        .common_table_style td {
+            padding: 0.8em 0;
+            font-weight: 500;
+        }
+        .common_table_style td img {
+            cursor: pointer;
+            width: 1.6em;
+            vertical-align: middle;
+        }
+
+        .common_table_style td img:hover {
+            filter: brightness(2)
+        }
+        select.xxcc option:hover{
+            box-shadow: 0 0 10px 100px #1882A8 inset;
+        }
+        .ts_keywords{
+            text-align: center;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <select style=" height: 26px;font-size: 15px;" class="xxcc">
+        <option selected disabled>--请选择需要删选的投诉信息--</option>
+        <option>投诉A</option>
+        <option>投诉B</option>
+        <option>投诉C</option>
+        <option>投诉D</option>
+        <option>投诉E</option>
+    </select>
+
+    <button class="new_keywords">新建关键字+</button>
+    <div class="wrapper_ts" style="font-size: 9px;width: 400px;position: fixed;top: 10%;left: 50%;margin-left: -200px;">
+        <table class="common_table_style" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <th>序号</th>
+                    <th>关键字</th>
+                    <th>编辑</th>
+                    <th>删除</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><input class="ts_keywords" type="text" value="伙食不好" readonly="readonly"></td>
+                    <td>
+                        <img src="./edit_sign.png" alt="" onclick="modify(this)" >
+                    </td>
+                    <td>
+                        <img src="./del_sign.png" alt="" onclick="del(this)">
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function del(x){
+            x.parentNode.parentNode.outerHTML = "";
+        }
+
+        function modify(x){
+            // x.parentNode.previousSibling.childNodes[0].readonly = null;
+            console.log(x.parentNode.previousSibling);
+            
+        }
+    </script>
+</body>
+
+</html>

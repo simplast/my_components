@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta chdarset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-ssCompatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #snake_wrapper {
+            width: 500px;
+            position: absolute;
+            height: 500px;
+            margin: 0 auto;
+            background: #f1f1f1;
+            border: 1px solid #ccffdd;
+            overflow: hidden;
+        }
+
+        #snake_wrapper>span {
+            position: absolute;
+            background: green;
+            width: 5%;
+            height: 5%;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="snake_wrapper">
+        <span></span>
+    </div>
+    <script>
+        var w = document.getElementById("snake_wrapper");
+        var i;
+        function move(obj, direction, offset) {
+            var temp = +obj.style[direction].slice(0, -1) + offset + "%";
+            if (+obj.style[direction].slice(0, -1) > 100) {
+                obj.style[direction] = "0%";
+            } else {
+                obj.style[direction] = temp;
+            } 
+            if (+obj.style[direction].slice(0, -1) < 0) {
+                obj.style[direction] = "100%";
+            } else {
+                obj.style[direction] = temp;
+            }
+        }
+
+        function add_span() {
+            var temp = document.createElement("span");
+            w.appendChild(temp);
+        }
+        document.onkeydown = function (event) {
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if (e && e.keyCode == 38) {
+                clearInterval(i);
+                i = setInterval(function () {
+                    move(w.getElementsByTagName("span")[0], "top", -10);
+                }, 250);
+            }
+            if (e && e.keyCode == 40) {
+                clearInterval(i)
+                i = setInterval(function () {
+                    move(w.getElementsByTagName("span")[0], "top", 10);
+                }, 250);
+            }
+            if (e && e.keyCode == 37) {
+                clearInterval(i)
+                i = setInterval(function () {
+                    move(w.getElementsByTagName("span")[0], "left", -10);
+                }, 250);
+            }
+            if (e && e.keyCode == 39) {
+                clearInterval(i)
+                i = setInterval(function () {
+                    move(w.getElementsByTagName("span")[0], "left", 10);
+                }, 250);
+            }
+        };
+
+        i = setInterval(function () {
+            move(w.getElementsByTagName("span")[0], "top", 10);
+        }, 250);
+    </script>
+</body>
+
+</html>
