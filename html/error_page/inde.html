@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>错误提示</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .main {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #f3f3f3;
+        }
+
+        .main>div {
+            width: 960px;
+            position: absolute;
+            top: 50%;
+            margin-top: -214px;
+            left:50%;
+            margin-left: -480px;
+        }
+
+        .tips {
+            display: inline-block;
+            margin-top: 20px;
+            margin-left: 240px;
+        }
+        .main>div>*{
+            vertical-align: middle;
+        }
+        .tips>img {
+            cursor: pointer;
+            margin: 40px 0;
+        }
+
+        .tips>p {
+            font-size: 34px;
+            color: #2B88FD;
+        }
+
+        .tips>span {
+            display: block;
+            margin-bottom: 28px;
+            cursor: pointer;
+            color: #2B88FD;
+            font-size: 18px;
+        }
+
+        .tips>span>* {
+            vertical-align: middle;
+        }
+
+        u {
+            text-underline-position: under;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div>
+            <img src="./figure_bg.png">
+            <div class="tips">
+                <p>系统正在开小差...</p>
+                <img src="./btn_icon.png">
+                <span>除此之外，您还可以：</span>
+                <span onclick="javascript:window.history.back()">
+                    <img src="./back_icon.png">
+                    <u>返回上一页</u>
+                </span>
+                <span onclick="javascript:">
+                    <img src="./home_icon.png">
+                    <u>返回主页</u>
+                </span>
+                <span onclick="javascript:location.reload()">
+                    <img src="./refresh_icon.png">
+                    <u>刷新此页面</u>
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
