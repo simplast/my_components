@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <span id="sp">
+        <button id="bu">
+            sdfa
+        </button>   
+    </span>
+
+    <script>
+
+        // 给每一个button外的span添加addEventListener
+        document.getElementById("bu").onclick = function () {
+            // 这里是button的点击事件
+            alert("button");
+        };
+
+        document.getElementById("sp").addEventListener("click", stuff, 1);
+        function stuff() {
+            // 这里写判断条件
+            if (1) {
+                // ↓表示button的点击事件不执行
+                try {
+                    event.stopPropagation();
+                }
+                catch (e) {
+                    event.cancelBubble = true;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -3,7 +3,7 @@ import "./style.css";
 
 function component() {
     var element = document.createElement("div");
-    element.innerHTML = _.join(["hello", "webpack"], " ");
+    element.innerHTML = _.join(["hello", "we1bpack"], " ");
     element.classList.add("hello");
     return element;
 }
