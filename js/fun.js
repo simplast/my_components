@@ -2,7 +2,7 @@
  * @Author: simplastHu 
  * @Date: 2018-06-02 16:44:04 
  * @Last Modified by: simplastHu
- * @Last Modified time: 2018-06-18 10:17:03
+ * @Last Modified time: 2018-07-10 14:42:49
  */
 // 响应式,设置尺寸
 function set_size() {
@@ -16,7 +16,6 @@ function set_size() {
         var wW = window.parent.innerWidth || window.innerWidth;// 当前窗口的宽度
         var rem = wW * whdef;// 以默认比例值乘以当前窗口宽度,得到该宽度下的相应FONT-SIZE值
         $('html').css('font-size', rem + "px");
-
     }
 }
 
