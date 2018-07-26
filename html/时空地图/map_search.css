@@ -71,7 +71,7 @@ body {
     font-size: 14px;
 }
 
-.serch_box>form [type=submit] {
+.serch_box>form [type=button] {
     width: 47px;
     height: 99%;
     float: right;
@@ -82,7 +82,7 @@ body {
     box-shadow: 0px 0px 13px 0px rgba(44, 44, 44, 0.36);
 }
 
-.serch_box>form [type=submit]:focus {
+.serch_box>form [type=button]:focus {
     outline: none;
 }
 
