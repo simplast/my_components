@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="javascript/jquery-3.3.1.min.js"></script>
+	<title>双向数据绑定</title>
+</head>
+<body>
+	<div>
+		<form action="#"></form>
+	</div>
+	<div> </div>
+	<script>
+		function DataBinder(object_id) {  
+			var pubSub = $({});
+			var data_attr = "bind-" + object_id,
+			message = object_id + ":change";
+
+			$(document).on("change","[data-" + data_attr + "]", function (evt) {  
+				var input = $(this);
+				pubSub.trigger(message,[$input.data(data.attr,$input.val())]);
+			})
+		}
+	</script>
+</body>
+</html>

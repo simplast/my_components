@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        #wrapper {
+            position: relative;
+            margin: 0 auto;
+            width: 600px;
+            height: 849px;
+            background-image: url(images/0001.jpg);
+            background-position: center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 10px #ccc;
+        }
+
+        #wrapper>div {
+            position: absolute;
+            top:50%;
+            right: -100px;
+            margin-top: -105px;
+            text-align: center;
+            width: 100px;
+        }
+
+        #wrapper>div>span {
+            box-sizing: border-box;
+            padding: 5px;
+            display: inline-block;
+            cursor: pointer;
+            user-select: none;
+            font-size: 12px;
+        }
+
+        #wrapper>div>span:hover {
+            color: blue;
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main_1">
+        <div id="wrapper">
+        <div>
+                <span id="prev" title="上一页"><img src="prev.png"><br>上一页</span>
+                <br><br>
+                <span id="next" title="下一页"><img src="next.png"><br>下一页</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        var main = document.getElementById("wrapper");
+        var current_page = 1;
+        var max_num = 289;  //最大页码数,请修改为真实数据
+
+        function set_img(num) {
+            var flag = 4 - num.toString().length;
+            while (flag > 0) {
+                num = "0" + num;
+                flag--;
+            }
+            main.style.backgroundImage = "url(images/" + num + ".jpg)";
+        }
+
+        // 下一页
+        document.getElementById("next").onclick = function () {
+            current_page++;
+            if (current_page > max_num) {
+                current_page = max_num;
+            }
+            set_img(current_page);
+        }
+        // 上一页
+        document.getElementById("prev").onclick = function () {
+            current_page--;
+            if (current_page <= 0) {
+                current_page = 1;
+            }
+            set_img(current_page);
+        }
+    </script>
+</body>
+
+</html>
