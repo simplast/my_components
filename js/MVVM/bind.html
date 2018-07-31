@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,22 +8,33 @@
 	<script src="javascript/jquery-3.3.1.min.js"></script>
 	<title>双向数据绑定</title>
 </head>
-<body>
-	<div>
-		<form action="#"></form>
-	</div>
-	<div> </div>
-	<script>
-		function DataBinder(object_id) {  
-			var pubSub = $({});
-			var data_attr = "bind-" + object_id,
-			message = object_id + ":change";
 
-			$(document).on("change","[data-" + data_attr + "]", function (evt) {  
-				var input = $(this);
-				pubSub.trigger(message,[$input.data(data.attr,$input.val())]);
-			})
-		}
+<body>
+	<input type="number" data-bind-123="name">
+	<script>
+		var salesOffices = {};
+		salesOffices.clientList = [];
+		salesOffices.listen = function (fn) {
+			this.clientList.push(fn);
+		};
+		salesOffices.trigger = function () {
+			for (var i = 0, fn; fn = this.clientList[i++];) {
+				fn.apply(arguments);
+			}
+		};
+		salesOffices.listen(function (price, squareMeter) {  
+			console.log('价格= ' + price);
+			console.log('squareMeter= ' + squareMeter);
+			console.log(this);
+		});
+
+		salesOffices.listen(function (price, squareMeter) {  
+			console.log('价格= ' + price);
+			console.log('squareMeter= ' + squareMeter);
+		});
+		salesOffices.trigger(2000, 44);
+		salesOffices.trigger(32000, 144);
 	</script>
 </body>
+
 </html>
