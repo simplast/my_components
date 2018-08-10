@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../jquery/jquery-3.3.1.min.js"></script>
+    <title>每日历程</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei";
+            color: #404d51;
+        }
+
+        .visual_line {
+            display: block;
+            height: 2px;
+            width: 184px;
+            background: linear-gradient(-90deg, transparent 0%, #2c96c0 100%);
+        }
+
+        .time_line_wrapper {
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 4px;
+        }
+
+        .time_line_wrapper h3 {
+            margin-bottom: 2px;
+            font-size: 14px;
+            line-height: 14px;
+            letter-spacing: 1px;
+        }
+
+        .main_line_wrapper {
+            position: relative;
+            padding: 22px 0 0 0;
+            margin: 60px 130px;
+            min-height: 640px;
+        }
+
+        .main_line_wrapper .visual_line {
+            position: absolute;
+            top: 0;
+            left: 116px;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(0deg,
+            #f3f3f3 0%,
+            #f9f9f9 0%,
+            rgba(255, 255, 255, 0.01) 1%,
+            rgba(198, 213, 217, 0.05) 6%,
+            rgba(165, 189, 196, 0.5) 59%,
+            #9cb6bd 75%,
+            #8caab3 100%);
+            border-radius: 4px;
+        }
+
+        #data_wrapper {
+            list-style-type: none;
+            position: relative;
+        }
+
+        #data_wrapper>li {
+            margin-bottom: 38px;
+        }
+
+        #data_wrapper>li>* {
+            vertical-align: middle;
+        }
+
+        #data_wrapper>li>img {
+            margin: 0 14px;
+            padding: 11px;
+            border-radius: 100%;
+            background-color: #f3f3f3;
+            box-shadow: 0px 3px 4px 0px rgba(55, 55, 55, 0.22);
+        }
+
+        #data_wrapper>li>span {
+            color: #000;
+        }
+
+        ul.affair_name {
+            list-style-type: disc;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        ul.affair_name li {
+            float: left;
+            margin-right: 20px;
+            list-style-position: inside;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="time_line_wrapper">
+            <h3>每日历程</h3>
+            <span class="visual_line"></span>
+            <div class="main_line_wrapper">
+                <div class="visual_line"></div>
+                <ul id="data_wrapper">
+                    <!-- ajax数据传递后的容器 -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 数据格式,时间最新的项，放在数组的最末尾
+        var data_timeline = [
+            {
+                time: '2018.01.08',
+                affair: ["首次监督", "执法文书", "行政处罚"]
+            },
+            {
+                time: '2018.02.08',
+                affair: ["首监督", "行政处罚"]
+            },
+            {
+                time: '2018.03.08',
+                affair: ["招标控制价审核", "执法文书"]
+            },
+            {
+                time: '2018.04.08',
+                affair: ["招标公告备案"]
+            },
+        ]
+
+        function set_data(data) {
+            var temp = "";
+            var le = data.length;
+            while (le--) {
+                console.log(le);
+                temp += '<li>' +
+                    '<span>' + data[le].time + '</span>' +
+                    '<img src="flag.png" alt="暂无法显示图片">' +
+                    '<ul class="affair_name">' +
+                    data[le].affair.map(function (current_value) {
+                        return '<li>' + current_value + '</li>';
+                    }).join("") +
+                    ' </ul>' +
+                    '</li>'
+            }
+            $('#data_wrapper').append($(temp));
+        }
+        set_data(data_timeline);
+    </script>
+</body>
+
+</html>
