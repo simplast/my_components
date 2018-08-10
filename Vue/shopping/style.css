@@ -1,0 +1,31 @@
+[v-cloak]{
+    display: none;
+}
+
+table{
+    text-align: center;
+    border-collapse: collapse;
+}
+th{
+    background: #d8d8d8;
+    
+}
+td,th{
+    padding: 5px 20px;
+    border: 1px solid #666;
+}
+
+td>div{
+    text-align: justify;
+    text-align-last: justify;
+}
+button{
+    border:1px solid #bbb;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+}
+button:active{
+    background: #d8d8d8;;
+    
+}

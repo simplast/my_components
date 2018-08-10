@@ -1,0 +1,491 @@
+@{
+    ViewBag.Title = "�麣�н�������GIS�ֲ�ͼ";
+    Layout = null;
+}
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2&ak=KxP0CuhC5mgEGj8q3pw9pnkO"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+    <script type="text/javascript" src="MarkerClusterer_min.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/TempMap/MUI/js/mui.min.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Content/TempMap/MUI/css/mui.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/TempMap/images/base.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div style="width: 100%!important;">
+        <div style="position: relative;width: 100%; height: 100%;">
+            <div id="allmap">
+            </div>
+            <div id="lefdiv" style="width:0px;">
+                <div id="searchdiv">
+                    <div id="searchdiv2" class="mui-input-row">
+                        <input id="searchinput" type="text" class="mui-input-clear" placeholder="�ڽ���Ŀ���� @ViewBag.AllCount ��">
+                    </div>
+                    <input class="search" type="button" onclick="GetItem();" />
+                </div>
+                <div id="item" class="item">
+                    <div style="text-align: left; background-color:#c8e2ff; border: double #dfe5f3; vertical-align: middle; height: 40px; background-color: #fff;">
+                        <p id="searchresult" style="float:left;" onclick="CancelItem();"></p><p id="ClearItem" onclick="ClearItem();">�ر�</p>
+                    </div>
+                    <div style="text-align: left;padding:10px;color:white;font-weight:bold; vertical-align:middle; min-height:40px; background-color: #0cb4d2;">
+                        <font id="xmmc"></font>
+                    </div>
+                    <table class="itemdetail" style="background-color: #fff;" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <th rowspan="14">��<br />Ŀ<br />��<br />��<br />��<br />Ϣ</th>
+                                <td style="width:5%">ʩ�����֤��ţ�<font id="sgxkzh"></font></td>
+                            </tr>
+                            <tr>
+                                <td style="width:45%">��Ŀ��ַ��<font id="xmdz"></font></td>
+                            </tr>
+                            <tr>
+                                <td>��Ŀ���ࣺ<font id="xmfl"></font></td>
+                            </tr>
+                            <tr>
+                                <td>��Ͷ�ʣ�<font id="ztz"></font></td>
+                            </tr>
+                            <tr>
+                                <td>�����/���ȣ�<font id="zmj"></font></td>
+                            </tr>
+                            <tr>
+                                <td>�����ĺţ�<font id="lxwh"></font></td>
+                            </tr>
+                            <tr>
+                                <td>�õ���׼��֤��<font id="jsydpzszh"></font></td>
+                            </tr>
+                            <tr>
+                                <td>���̹滮���֤��<font id="jsgcghxkzh"></font></td>
+                            </tr>
+                            <tr>
+                                <td>ʩ��ͼ���ϸ�ţ�<font id="sgtschgh"></font></td>
+                            </tr>
+                            <tr>
+                                <td>��ͬ��ţ�<font id="htbh"></font></td>
+                            </tr>
+                            <tr>
+                                <td>�ƻ��������ڣ�<font id="jhkg"></font></td>
+                            </tr>
+                            <tr>
+                                <td>�ƻ��������ڣ�<font id="jhjg"></font></td>
+                            </tr>
+                            <tr>
+                                <td>�����ˣ�<font id="jbr"></font></td>
+                            </tr>
+                            <tr>
+                                <td>�������ֻ��ţ�<font id="jbrsj"></font></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="itemdetail" style="background-color: #eee;">
+
+                        <tbody>
+                            <tr>
+                                <th rowspan="8" colspan="2">��<br />��<br />��<br />��<br />��<br />Ϣ</th>
+                                <td style="width:5%">���赥λ��<font id="jsdw"></font></td>
+                            </tr>
+                            <tr>
+                                <td style="width:40%">���ˣ�<font id="fr"></font></td>
+                            </tr>
+                            <tr>
+                                <td>ʩ����λ��<font id="zsgdw"></font></td>
+                            </tr>
+                            <tr>
+                                <td>����λ��<font id="jldw"></font></td>
+                            </tr>
+                            <tr>
+                                <td>��Ƶ�λ��<font id="sjdw"></font></td>
+                            </tr>
+                            <tr>
+                                <td>���쵥λ��<font id="kcdw"></font></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="itemdetail2" style="background-color: #fff;">
+                        <tbody>
+                            <tr>
+                                <th rowspan="5">��<br />��<br />��<br />Ա<br />��<br />Ϣ</th>
+                                <td>��Ŀ����<font id="xmjl"></font></td>
+                            </tr>
+                            <tr>
+                                <td>��Ŀ�ܼࣺ<font id="xmzj"></font></td>
+                            </tr>
+                            <tr>
+                                <td>��Ƹ����ˣ�<font id="sjfzr"></font></td>
+                            </tr>
+                            <tr>
+                                <td>���츺���ˣ�<font id="kcfzr"></font></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="search_item" class="search_item">
+                </div>
+            </div>
+
+            <div style="position: absolute; z-index: 90; top: 50%; right: 50px; opacity: 0.7; filter: alpha(opacity=70);">
+                <img style="cursor:pointer;" onclick="MapToBig()" src="@Url.Content("~/Content/TempMap/images/123_03.png")" /><br />
+                <img style="cursor:pointer;" onclick="MapToSmall()" src="@Url.Content("~/Content/TempMap/images/123_06.png")" />
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        //��չmui.showLoading
+        (function ($, window) {
+            //��ʾ���ؿ�
+            $.showLoading = function (message, type) {
+                if ($.os.plus && type !== 'div') {
+                    $.plusReady(function () {
+                        plus.nativeUI.showWaiting(message);
+                    });
+                } else {
+                    var html = '';
+                    html += '<i class="mui-spinner mui-spinner-white"></i>';
+                    html += '<p class="text">' + (message || "���ݼ�����") + '</p>';
+
+                    //���ֲ�
+                    var mask = document.getElementsByClassName("mui-show-loading-mask");
+                    if (mask.length == 0) {
+                        mask = document.createElement('div');
+                        mask.classList.add("mui-show-loading-mask");
+                        document.body.appendChild(mask);
+                        mask.addEventListener("touchmove", function (e) { e.stopPropagation(); e.preventDefault(); });
+                    } else {
+                        mask[0].classList.remove("mui-show-loading-mask-hidden");
+                    }
+                    //���ؿ�
+                    var toast = document.getElementsByClassName("mui-show-loading");
+                    if (toast.length == 0) {
+                        toast = document.createElement('div');
+                        toast.classList.add("mui-show-loading");
+                        toast.classList.add('loading-visible');
+                        document.body.appendChild(toast);
+                        toast.innerHTML = html;
+                        toast.addEventListener("touchmove", function (e) { e.stopPropagation(); e.preventDefault(); });
+                    } else {
+                        toast[0].innerHTML = html;
+                        toast[0].classList.add("loading-visible");
+                    }
+                }
+            };
+
+            //���ؼ��ؿ�
+            $.hideLoading = function (callback) {
+                if ($.os.plus) {
+                    $.plusReady(function () {
+                        plus.nativeUI.closeWaiting();
+                    });
+                }
+                var mask = document.getElementsByClassName("mui-show-loading-mask");
+                var toast = document.getElementsByClassName("mui-show-loading");
+                if (mask.length > 0) {
+                    mask[0].classList.add("mui-show-loading-mask-hidden");
+                }
+                if (toast.length > 0) {
+                    toast[0].classList.remove("loading-visible");
+                    callback && callback();
+                }
+            }
+        })(mui, window);
+
+
+        var dataObj = null;
+        var arr = null;
+        var map = new BMap.Map("allmap", { enableMapClick: false });// ����Mapʵ��
+        map.enableScrollWheelZoom();                    //���ù��ַŴ���С
+        map.enableInertialDragging();                   //���õ�ͼ������ק
+        map.centerAndZoom(new BMap.Point(113.549517, 22.271744), 12);
+
+        function GetItem() {
+            mui.showLoading("������...", "div");
+            var key = $("#searchinput").val();
+            $("#lefdiv").width(350);
+            $.ajax({
+                url: '/Current/TeampGetItemList?key=' + key + '&&id=' + new Date().getTime(),
+                type: 'GET',
+                async: true,
+                datatype: 'json',
+                success: function (data) {
+                    $("#search_item").html("");
+                    $("#item").hide()
+                    $("#search_item").hide();
+                    if (data.result != "") {
+                        var jsonobj = eval('(' + data.result + ')');
+                        dataObj = jsonobj;
+                        $.each(jsonobj, function (i) {
+                            $("#search_item").append("<div onmousemove='ChangeSearchItemColor(this)' onclick='GetItemDetail(" + i + ")' class='dim' ><div class='search_img'>" + (parseInt(i) + 1) + "</div><div><b>" + jsonobj[i].xmmc + "</b><p>" + jsonobj[i].xmdz + "</p></div></div>")
+                        });
+                        $("#search_item").show();
+                    }
+                    ToAddLayer(dataObj);
+                    mui.hideLoading(function () { });
+                }
+            });
+        }
+
+        function ChangeSearchItemColor(obj) {
+            $("div[class='dim']").css("background-color", "#fff");
+            $(obj).css("background-color", "#ddd");
+        }
+
+        function MapToBig() {
+            mui.showLoading("������...", "div");
+            map.setZoom(map.getZoom() + 1);
+            mui.hideLoading(function () { });
+        }
+
+        function MapToSmall() {
+            mui.showLoading("������...", "div");
+            map.setZoom(map.getZoom() - 1);
+            mui.hideLoading(function () { });
+        }
+        var oldx = null;
+        var oldy = null;
+        var old_obj = null;
+        function GetItemDetail(i) {
+            mui.showLoading("������...", "div");
+            $("#search_item").hide();
+            $("#xmmc").html("�� " + dataObj[i].xmmc);
+            $("#sgxkzh").html(dataObj[i].sgxkzh);
+            $("#xmdz").html(dataObj[i].xmdz);
+            $("#xmfl").html(dataObj[i].xmfl);
+            $("#ztz").html(dataObj[i].ztz + "��Ԫ");
+            $("#zmj").html(dataObj[i].zmj + "�O");
+            $("#jhkg").html(dataObj[i].jhkg);
+            $("#jhjg").html(dataObj[i].jhjg);
+            $("#jbrsj").html(dataObj[i].jbrsj);
+            $("#jbr").html(dataObj[i].jbr);
+            $("#jsdw").html(dataObj[i].jsdw);
+            $("#fr").html(dataObj[i].fr);
+            $("#zsgdw").html(dataObj[i].zsgdw);
+            $("#jldw").html(dataObj[i].jldw);
+            $("#sjdw").html(dataObj[i].sjdw);
+            $("#kcdw").html(dataObj[i].kcdw);
+            $("#xmjl").html(dataObj[i].xmjl);
+            $("#xmzj").html(dataObj[i].xmzj);
+            $("#sjfzr").html(dataObj[i].sjfzr);
+            $("#kcfzr").html(dataObj[i].kcfzr);
+            $("#htbh").html(dataObj[i].htbh);
+            $("#sgtschgh").html(dataObj[i].sgtschgh);
+            $("#jsgcghxkzh").html(dataObj[i].jsgcghxkzh);
+            $("#jsydpzszh").html(dataObj[i].jsydpzszh);
+            $("#lxwh").html(dataObj[i].lxwh);
+            var key = $("#searchinput").val();
+            $("#searchresult").html('<< ����"' + key + '"���������');
+            $("#item").show();
+            $("#lefdiv").width(350);
+            if (dataObj[i].jwd != "") {
+                //map.clearOverlays();
+                var Longitude = dataObj[i].jwd.split(",")[0];
+                var Latitude = dataObj[i].jwd.split(",")[1];
+                var point = new BMap.Point(Longitude, Latitude);
+                var mrk = new BMap.Marker(point);
+                var icons = '@Url.Content("~/Content/TempMap/images/biaozhu.png")';
+                var icon = new BMap.Icon(icons, new BMap.Size(49, 79)); //��ʾͼ���С
+                mrk.setIcon(icon);    //���ñ�ǩ��ͼ��Ϊ�Զ���ͼ��
+                mrk.setTitle(dataObj[i].xmmc);
+                map.addOverlay(mrk);
+                UpDateOldObj(Longitude, Latitude, dataObj[i]);
+                var opts = {
+                    width: 250,
+                    height: 100,
+                    title: dataObj[i].xmfl + "�ڽ���Ŀ"
+                };
+                var infoWindow = new BMap.InfoWindow(dataObj[i].xmmc, opts);//������Ϣ���ڶ���
+                map.panTo(point);
+                mrk.openInfoWindow(infoWindow, point);//����Ϣ����
+            }
+            mui.hideLoading(function () { });
+        }
+
+        function UpDateOldObj(x, y, obj) {
+            if (oldx != null && oldy != null && old_obj != null) {
+                var Longitude = oldx;
+                var Latitude = oldy;
+                var point = new BMap.Point(Longitude, Latitude);
+                var mrk = new BMap.Marker(point);
+                var icons = '@Url.Content("~/Content/TempMap/images/biaozhu-hong.png")';
+                var icon = new BMap.Icon(icons, new BMap.Size(49, 79)); //��ʾͼ���С
+                mrk.setIcon(icon);    //���ñ�ǩ��ͼ��Ϊ�Զ���ͼ��
+                mrk.setTitle(old_obj.xmmc);
+                map.addOverlay(mrk);
+                
+                mrk.addEventListener("click", function (e) {
+                    map.removeOverlay(this);
+                    var point2 = new BMap.Point(Longitude, Latitude);
+                    var mrk2 = new BMap.Marker(point2);
+                    var icons2 = '@Url.Content("~/Content/TempMap/images/biaozhu.png")';
+                    var icon2 = new BMap.Icon(icons2, new BMap.Size(49, 79)); //��ʾͼ���С
+                    mrk2.setIcon(icon2);    //���ñ�ǩ��ͼ��Ϊ�Զ���ͼ��
+                    mrk2.setTitle(old_obj.xmmc);
+                    map.addOverlay(mrk2);
+                    GetItemDetail2(old_obj);
+                });
+            }
+            oldx = x;
+            oldy = y;
+            old_obj = obj;
+        }
+        //���Ρ���Ӯ�����ܶ�
+        //ѧϰ��������һ����������
+        //ӭ�ӱ仯����Ӧ�仯�����Ʊ仯
+        function GetItemDetail2(obj) {
+            mui.showLoading("������...", "div");
+            $("#search_item").hide();
+            $("#xmmc").html("�� " + obj.xmmc);
+            $.ajax({
+                url: '/Current/TeampGetItemByName?key=' + escape(obj.xmmc) + '&&id=' + new Date().getTime(),
+                type: 'GET',
+                async: true,
+                datatype: 'json',
+                success: function (data) {
+                    if (data.result != "") {
+                        var jsonobj = eval('(' + data.result + ')');
+                        dataObj = jsonobj;
+                        var markers =[];
+                        $.each(jsonobj, function (i) {
+                            obj = jsonobj[i];
+                            $("#xmmc").html("�� " + obj.xmmc);
+                            $("#sgxkzh").html(obj.sgxkzh);
+                            $("#xmdz").html(obj.xmdz);
+                            $("#xmfl").html(obj.xmfl);
+                            $("#ztz").html(obj.ztz + "��Ԫ");
+                            $("#zmj").html(obj.zmj + "�O");
+                            $("#jhkg").html(obj.jhkg);
+                            $("#jhjg").html(obj.jhjg);
+                            $("#jbrsj").html(obj.jbrsj);
+                            $("#jbr").html(obj.jbr);
+                            $("#jsdw").html(obj.jsdw);
+                            $("#fr").html(obj.fr);
+                            $("#zsgdw").html(obj.zsgdw);
+                            $("#jldw").html(obj.jldw);
+                            $("#sjdw").html(obj.sjdw);
+                            $("#kcdw").html(obj.kcdw);
+                            $("#xmjl").html(obj.xmjl);
+                            $("#xmzj").html(obj.xmzj);
+                            $("#sjfzr").html(obj.sjfzr);
+                            $("#kcfzr").html(obj.kcfzr);
+                            $("#htbh").html(obj.htbh);
+                            $("#sgtschgh").html(obj.sgtschgh);
+                            $("#jsgcghxkzh").html(obj.jsgcghxkzh);
+                            $("#jsydpzszh").html(obj.jsydpzszh);
+                            $("#lxwh").html(obj.lxwh);
+                            var key = $("#searchinput").val();
+                            $("#searchresult").html('<< ����"' + key + '"���������');
+                            $("#item").show();
+                            $("#lefdiv").width(350);
+                            if (obj.jwd != "") {
+                                //map.clearOverlays();
+                                var Longitude = obj.jwd.split(",")[0];
+                                var Latitude = obj.jwd.split(",")[1];
+                                var point = new BMap.Point(Longitude, Latitude);
+                                var mrk = new BMap.Marker(point);
+                                var icons = '@Url.Content("~/Content/TempMap/images/biaozhu.png")';
+                                var icon = new BMap.Icon(icons, new BMap.Size(49, 79)); //��ʾͼ���С
+                                mrk.setIcon(icon);    //���ñ�ǩ��ͼ��Ϊ�Զ���ͼ��
+                                mrk.setTitle(obj.xmmc);
+                                UpDateOldObj(Longitude, Latitude, obj);
+                                markers.push(mrk);
+                                var opts = {
+                                    width: 250,
+                                    height: 100,
+                                    title: obj.xmfl + "�ڽ���Ŀ"
+                                };
+                                var infoWindow = new BMap.InfoWindow(obj.xmmc, opts);//������Ϣ���ڶ���
+                                map.panTo(point);
+                                mrk.openInfoWindow(infoWindow, point);//����Ϣ����
+                            }
+                            mui.hideLoading(function () { });
+                        });
+                        var markerClusterer = new BMapLib.MarkerClusterer(map, {markers:markers});
+                    }
+                }
+            });
+
+        }
+
+        window.onload = function () {
+            mui.showLoading("��ͼ��Ŀ��ע</br>������...", "div");
+            $.ajax({
+                url: '/Current/TeampGetAllItemList',
+                type: 'GET',
+                async: true,
+                datatype: 'json',
+                success: function (data) {
+                    var jsonobj = eval('(' + data.result + ')');
+                    arr = jsonobj;
+                    ToAddLayer(arr);
+                    mui.hideLoading(function () { });
+                }
+            });
+        }
+
+        function ToAddLayer(obj) {
+            //map.clearOverlays();
+            $.each(obj, function (i) {
+                if (obj[i].jwd != null && obj[i].jwd != "") {
+                    var Longitude = obj[i].jwd.split(",")[0];
+                    var Latitude = obj[i].jwd.split(",")[1];
+                    var point = new BMap.Point(Longitude, Latitude);
+                    var mrk = new BMap.Marker(point);
+                    var icons = '@Url.Content("~/Content/TempMap/images/biaozhu-hong.png")';
+                    var icon = new BMap.Icon(icons, new BMap.Size(49, 79)); //��ʾͼ���С
+                    mrk.setIcon(icon);    //���ñ�ǩ��ͼ��Ϊ�Զ���ͼ��
+                    mrk.setTitle(obj[i].xmmc);
+                    map.addOverlay(mrk);
+                    mrk.addEventListener("click", function (e) {
+                        map.removeOverlay(this);
+                        var point2 = new BMap.Point(Longitude, Latitude);
+                        var mrk2 = new BMap.Marker(point2);
+                        var icons2 = '@Url.Content("~/Content/TempMap/images/biaozhu.png")';
+                        var icon2 = new BMap.Icon(icons2, new BMap.Size(49, 79)); //��ʾͼ���С
+                        mrk2.setIcon(icon2);    //���ñ�ǩ��ͼ��Ϊ�Զ���ͼ��
+                        mrk2.setTitle(obj[i].xmmc);
+                        map.addOverlay(mrk2);
+                        GetItemDetail2(obj[i]);
+                    });
+                }
+            });
+        }
+
+        function ClearItem() {
+            $("#lefdiv").width(0);
+            $("#item").hide();
+            $("#search_item").hide();
+            map.panTo(new BMap.Point(113.549517, 22.271744));
+        }
+
+        function CancelItem() {
+            var key = $("#searchinput").val();
+            $("#item").hide();
+            $("#search_item").show();
+            //if (key != "") {
+            //    $("#item").hide();
+            //    $("#search_item").show();
+            //} else {
+            //    mui.showLoading("��ͼ��Ŀ��ע</br>������...", "div");
+            //    $.ajax({
+            //        url: '/Current/TeampGetAllItemList',
+            //        type: 'GET',
+            //        async: true,
+            //        datatype: 'json',
+            //        success: function (data) {
+            //            var jsonobj = eval('(' + data.result + ')');
+            //            arr = jsonobj;
+            //            ToAddLayer(arr);
+            //            $("#item").hide();
+            //            $("#search_item").show();
+            //            mui.hideLoading(function () { });
+            //        }
+            //    });
+            //}
+        }
+
+    </script>
+</body>
+</html>
