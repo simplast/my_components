@@ -3,4 +3,32 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import "compass/reset";
+ @import "compass/reset";
+
+ $size_1: 28px;
+
+ html,body,.main_wrapper{
+     width: 100%;
+     height: 100%;
+     overflow: hidden;
+ }
+ 
+ .header{
+     line-height: 56px;
+     h1{
+       float:left;
+       font-size:28px;
+       padding-left: 85px;
+       color: #fff;
+     }
+     .btn_list{
+        float:right;
+      }
+ 
+ }
+ .btn_list{
+     
+     li{
+         display:inline-block;
+     }
+ }
