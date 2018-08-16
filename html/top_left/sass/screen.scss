@@ -3,32 +3,113 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
- @import "compass/reset";
+@import "compass/reset";
 
- $size_1: 28px;
+$size_1: 28px;
+$size_2: 14px;
+$color_ul_1: #318bb6;
+$color_li_1_border:#0B6C9A;
+$color_li_2_border:#2a80a9;
 
- html,body,.main_wrapper{
-     width: 100%;
-     height: 100%;
-     overflow: hidden;
- }
- 
- .header{
-     line-height: 56px;
-     h1{
-       float:left;
-       font-size:28px;
-       padding-left: 85px;
-       color: #fff;
-     }
-     .btn_list{
-        float:right;
+html,
+body,
+.main_wrapper {
+  height: 100%;
+}
+.main_wrapper {
+  position: relative;
+  min-width: 1275px;
+  overflow-x: auto;
+}
+.header {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  line-height: 56px;
+  height: 56px;
+  background: url(../images/header_bg.png) no-repeat top left;
+  background-size: cover;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+  h1 {
+    float: left;
+    font-size: $size_1;
+    padding-left: 85px;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 2px 1px 6px #666;
+    background: url(../images/logo.png) no-repeat 37px 11px;
+    background-size: 36px 36px;
+  }
+  .btn_list {
+    float: right;
+  }
+}
+.btn_list {
+  li {
+    display: inline-block;
+    margin-right: 12px;
+    vertical-align: middle;
+    button {
+      padding: 4px 16px;
+      cursor: pointer;
+      font-size: $size_2;
+      border: 0;
+      background: url(../images/nav_bg_normal.png) center no-repeat;
+      background-size: contain;
+      color: #23638c;
+      outline: 0;
+      &:hover {
+        color: #23638c * 1.5;
       }
- 
- }
- .btn_list{
-     
-     li{
-         display:inline-block;
-     }
- }
+      &:active {
+        color: #23638c;
+        background-image: url(../images/nav_bg_pressed.png);
+      }
+    }
+    ul {
+      margin: 0 43px 0 30px;
+      li {
+        margin-right: 22px;
+        img {
+          cursor: pointer;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
+.left_munu_bar{
+    float: left;
+    padding-top: 56px;
+    height: 100%;
+    width: 170px;
+    overflow-y: auto;
+    color: #fff;
+    font-size: $size_2;
+    li{
+        cursor: pointer;
+    }
+    li+li{
+        border-top-width: 1px;
+        border-style: solid;
+    }
+    .ul_level_1{
+        height: 100%;
+        overflow: auto;
+        background-color: $color_ul_1;
+        &>li{
+            line-height: 46px;
+            padding:0 14px;
+            border-color: $color_li_1_border;
+            background: url(../images/retract.png) no-repeat right center;
+        }
+    }
+    .ul_level_2{
+        &>li{
+            line-height: 36px;
+            border-color: $color_li_2_border;
+        }
+    }
+}
