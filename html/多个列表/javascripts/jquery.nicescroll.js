@@ -2078,7 +2078,7 @@
     this.hideRail = function() {
       self.visibility = false;
       self.rail.visibility = false;
-      self.rail.css('display','block');
+      self.rail.css('display','none');
       return self;
     };
 

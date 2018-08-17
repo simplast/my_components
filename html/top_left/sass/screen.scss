@@ -4,7 +4,11 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
-
+@mixin no_wrap {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
 $size_1: 28px;
 $size_2: 14px;
 $color_ul_1: #318bb6;
@@ -14,110 +18,193 @@ $color_li_2_border: #2a80a9;
 html,
 body,
 .main_wrapper {
-  height: 100%;
+    height: 100%;
 }
 .main_wrapper {
-  position: relative;
-  min-width: 1275px;
-  overflow-x: auto;
+    position: relative;
+    min-width: 1275px;
+    min-height: 650px;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 .header {
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  line-height: 56px;
-  height: 56px;
-  background: url(../images/header_bg.png) no-repeat top left;
-  background-size: cover;
-  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
-  h1 {
-    float: left;
-    font-size: $size_1;
-    padding-left: 85px;
-    color: #fff;
-    font-weight: bold;
-    text-shadow: 2px 1px 6px #666;
-    background: url(../images/logo.png) no-repeat 37px 11px;
-    background-size: 36px 36px;
-  }
-  .btn_list {
-    float: right;
-  }
+    overflow: hidden;
+    position: absolute;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: 56px;
+    height: 56px;
+    background: url(../images/header_bg.png) no-repeat top left;
+    background-size: cover;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+    h1 {
+        float: left;
+        font-size: $size_1;
+        padding-left: 85px;
+        color: #fff;
+        font-weight: bold;
+        text-shadow: 2px 1px 6px #666;
+        background: url(../images/logo.png) no-repeat 37px 11px;
+        background-size: 36px 36px;
+    }
+    .btn_list {
+        float: right;
+    }
 }
 .btn_list {
-  li {
-    display: inline-block;
-    margin-right: 12px;
-    vertical-align: middle;
-    button {
-      padding: 4px 16px;
-      cursor: pointer;
-      font-size: $size_2;
-      border: 0;
-      background: url(../images/nav_bg_normal.png) center no-repeat;
-      background-size: contain;
-      color: #23638c;
-      outline: 0;
-      &:hover {
-        color: #23638c * 1.5;
-      }
-      &:active {
-        color: #23638c;
-        background-image: url(../images/nav_bg_pressed.png);
-      }
-    }
-    ul {
-      margin: 0 43px 0 30px;
-      li {
-        margin-right: 22px;
-        img {
-          cursor: pointer;
-          vertical-align: middle;
+    li {
+        display: inline-block;
+        margin-right: 12px;
+        vertical-align: middle;
+        button {
+            padding: 4px 16px;
+            cursor: pointer;
+            font-size: $size_2;
+            border: 0;
+            background: url(../images/nav_bg_normal.png) center no-repeat;
+            background-size: contain;
+            color: #23638c;
+            outline: 0;
+            &:hover {
+                color: #23638c * 1.5;
+            }
+            &:active {
+                color: #23638c;
+                background-image: url(../images/nav_bg_pressed.png);
+            }
         }
-      }
+        ul {
+            margin: 0 15px 0 30px;
+            li {
+                margin-right: 22px;
+                img {
+                    cursor: pointer;
+                    vertical-align: middle;
+                    &:hover{
+                        border-bottom: 1px solid $color_li_1_border;
+                    }
+                }
+            }
+        }
     }
-  }
 }
 .left_munu_bar {
-  float: left;
-  padding-top: 56px;
-  height: 100%;
-  width: 170px;
-  overflow-y: auto;
-  color: #fff;
-  font-size: $size_2;
-  li {
-    cursor: pointer;
-  }
-  li + li {
-    border-top-width: 1px;
-    border-style: solid;
-  }
-  .ul_level_1 {
+    position: absolute;
+    z-index: 199;
+    left: 0;
+    top: 0;
+    padding-top: 56px;
     height: 100%;
-    overflow: auto;
-    background-color: $color_ul_1;
-    & > li {
-      line-height: 46px;
-      border-color: $color_li_1_border;
-      & > span {
-        display: inline-block;
-        width: 100%;
-        padding-left:14px;
-        background: url(../images/retract.png) no-repeat 148px center;
-        &.active{
-            background-image: url(../images/drop_down.png);
+    width: 170px;
+    color: #fff;
+    user-select: none;
+    #scroll_control{
+      height: 100%;
+      background-color: $color_ul_1;
+    }
+    li {
+        cursor: pointer;
+        width: 170px;
+        border-bottom-width: 1px;
+        border-style: solid;
+    }
+
+    .ul_level_1 {
+        height:auto;
+        position: relative;
+        padding-bottom: 6px;
+        & > li {
+            font-size: 0;
+            border-color: $color_li_1_border;
+            &:hover{
+              color:#efefef;
+            }
+            &:last-child{
+              border-bottom-width: 1px;
+            }
+            & > span {
+                display: inline-block;
+                line-height: 46px;
+                @include no_wrap();
+                width: 100%;
+                padding: 0 14px;
+                font-size: $size_2;
+
+                & + ul.ul_level_2 {
+                    display: none;
+                }
+            } 
+            &.has_level_2 > span {
+                background: url(../images/retract.png) no-repeat 148px center;
+                &.active {
+                    background: url(../images/drop_down.png) no-repeat 148px
+                        center;
+                    color: #fff556;
+                }
+            }
         }
-      }
     }
-  }
-  .ul_level_2 {
-    & > li {
-      line-height: 36px;
-      padding-left: 28px;
-      border-color: $color_li_2_border;
+    .ul_level_2 {
+        li {
+            padding-left: 28px;
+            padding-right: 14px;
+            border-color: $color_li_2_border;
+            transition: background-color 0.1s ease;
+            background-repeat: no-repeat;
+            background-position: 148px center;
+            &:hover {
+                background-color: #b6d3e1;
+                color: $color_li_1_border;
+            }
+
+        }
+
+        & > li {
+            line-height: 36px;
+            height: 36px;
+            &.has_level_3:hover{
+              background-image: url(../images/arrow_right.png);
+            }
+            &:last-child{
+              border-bottom-width:0;
+            }
+            & > span {
+                display: inline-block;
+                width: 100%;
+                @include no_wrap();
+                font-size: $size_2 - 1px;
+            }
+            & > ul {
+                display: none;
+                position: fixed;
+                max-height: 480px;
+                overflow: hidden;
+                z-index: 299;
+                left:156px;
+                padding-left: 24px;
+                top: 0;
+                font-size: $size_2 - 1px;
+                color: #fff;
+                background-color: $color_ul_1;
+                background-clip: content-box;
+                li {
+                    @include no_wrap();
+                }
+            }
+        }
     }
-  }
+}
+
+.content{
+  position: absolute;
+  z-index: 88;
+  top: 0;
+  left: 0;
+  padding-left: 170px;
+  padding-top: 56px;
+  width: 100%;
+  height: 100%;
+  background-color: #f1f1f1;
 }
