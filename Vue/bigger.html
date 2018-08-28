@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+    <style>
+        .bigger {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        哈哈哈哈<img src="http://chuangzaoshi.com/assets/images/C/w3schools.png" :class="{bigger:isHover}" @mouseover ="isHover=1" @mouseout='isHover=0'>哈哈哈哈📪
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                isHover: 0,
+            },
+        })
+
+    </script>
+
+</body>
+
+</html>
