@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+/*业务统计*/
+.JobTongBox {
+  overflow: hidden;
+}
+.JobTong_Item {
+  width: 33.33%;
+  float: left;
+  margin-bottom: 40px;
+}
+.JobTong_Item_Main {
+  width: 90%;
+  margin: 0 auto;
+}
+.Job_Item_title h5 {
+  font-size: 14px;
+  height: 24px;
+  line-height: 20px;
+}
+.Job_Item_titleLine {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-image: -webkit-gradient(linear, right top, left top, from(#f4f4f4), to(#2c96c0));
+  background-image: linear-gradient(-90deg, #f4f4f4 0%, #2c96c0 100%);
+  /*background:url(../images/img_title_bg.png) no-repeat;*/
+  border-radius: 2px;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c96c0', endColorstr='#f4f4f4',GradientType=1 );
+}
+.JobTong_ConBox {
+  position: relative;
+}
+.Job_Item_Ol {
+  margin-top: 10px;
+  height: 306px;
+  overflow-y: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-right: 21px;
+}
+.Job_Item_Ol li {
+  position: relative;
+  margin: 8px 0;
+  font-size: 12px;
+  line-height: 30px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #F0F0F0;
+  border-radius: 4px;
+  padding: 0 50px 0 7px;
+}
+.Job_Item_Ol li:hover{
+	-webkit-box-shadow: 0 0 10px #ccc;
+	        box-shadow: 0 0 10px #ccc;
+	background-color: #fdd54a;
+}
+.Job_Item_Ol li:hover em{
+	color: #404d51;
+}
+.Job_Item_Ol li span {
+  position: absolute;
+  right:10px;
+  color: #404d51;
+  cursor: pointer;
+}
+.Job_Item_Ol li span em{
+	color: #929fa3;
+	font-weight: bold;
+	font-size: 13px;
+	padding-right: 6px;
+}

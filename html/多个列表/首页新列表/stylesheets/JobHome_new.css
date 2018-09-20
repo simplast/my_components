@@ -1,0 +1,125 @@
+@charset "utf-8";
+
+/*业务统计*/
+.JobTongBox {
+    overflow: hidden;
+    border: 1px solid #dedede;
+    border-top: 0;
+}
+.JobTong_Item_Main {
+    margin: 6px auto;
+}
+.Job_Item_title h5 {
+    font-size: 14px;
+    height: 24px;
+    line-height: 20px;
+}
+
+.WriteBgBox .active{
+    border-bottom: 0;
+}
+.WriteBgBox .active a{
+    color: #2c96c0;
+}
+.Job_Item_titleLine {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-image: -webkit-gradient(
+        linear,
+        right top,
+        left top,
+        from(#f4f4f4),
+        to(#dedede)
+    );
+    background-image: linear-gradient(-90deg, #f4f4f4 0%, #dedede 100%);
+    /*background:url(../images/img_title_bg.png) no-repeat;*/
+    border-radius: 2px;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dedede', endColorstr='#f4f4f4',GradientType=1 );
+}
+.JobTong_ConBox {
+    position: relative;
+}
+.Job_Item_Ol {
+    padding: 0px 12px;
+    height: 306px;
+    overflow-y: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 21px;
+}
+.Job_Item_Ol li {
+    display: inline-block;
+    position: relative;
+    margin: 6px 0;
+    font-size: 12px;
+    line-height: 38px;
+    width: 49%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    padding: 0 50px 0 7px;
+}
+.Job_Item_Ol li:nth-child(even){
+    float: right;
+}
+.Job_Item_Ol li:nth-child(odd){
+    clear: both;
+}
+.Job_Item_Ol li:hover {
+    -webkit-box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #ccc;
+    background-color: #fdd54a;
+}
+.Job_Item_Ol li:hover em {
+    color: #404d51;
+}
+.Job_Item_Ol li span {
+    position: absolute;
+    right: 10px;
+    color: #404d51;
+    cursor: pointer;
+}
+.Job_Item_Ol li span em {
+    color: #929fa3;
+    font-weight: bold;
+    font-size: 13px;
+    padding-right: 6px;
+}
+
+/* 新的修改2018-9-20 */
+.WriteBgBox > ul {
+    box-sizing: border-box;
+    font-size: 0;
+    width: 100%;
+    border: 1px solid #dedede;
+    border-radius: 6px;
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.WriteBgBox > ul > li {
+    box-sizing: border-box;
+    border-bottom: 1px solid #dedede;
+    font-size: 14px;
+    display: inline-block;
+    width: 16.667%;
+    text-align: center;
+}
+.WriteBgBox > ul a {
+    display: inline-block;
+    width: 100%;
+    color: #000;
+    text-decoration: none;
+    line-height: 34px;
+}
+.WriteBgBox > ul a:hover{
+    background-color: #f8f8f8;
+}
+.WriteBgBox > ul li + li{
+    border-left: 1px solid #dedede;
+}
