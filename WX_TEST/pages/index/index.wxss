@@ -1,0 +1,410 @@
+/**index.wxss**/
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+/* start */
+
+.main {
+  padding: 80px 4vh 0;
+  color: #fff;
+}
+
+.h1 {
+  text-align: left;
+  font-size: 22px;
+  margin-bottom: 40px;
+}
+
+.industry {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.server {
+  padding: 10px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px dotted #d8d8d8;
+  border-width: 1px 0;
+}
+.addme{
+  position: absolute;
+  right: 17px;
+  width: 18px;
+  height: 18px;
+}
+.server image{
+  width: 24px;
+  height: 22px;
+  margin-right: 10px;
+}
+.server button {
+  color: #fca22d;
+  margin-right: 0;
+  background-color: #fff;
+  border: 1px solid;
+  font-size: 14px;
+  width: 86px;
+  line-height: 26px;
+}
+.small_size{
+  margin-left: 10px;
+  font-size: 12px;
+  color: #ccc;
+}
+.logo{
+  position: absolute;
+  border-radius: 100%;
+  top: 25px;
+  right:50%;
+  margin-right: -34px;
+  width: 65px;
+  height: 65px;
+}
+.location, .phone {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACDUlEQVR4Xu3by0oDMRQG4Jx2Bl+kl9G+gVBxIyJdiviOIiiI4NqXaEoFXSgI7sRlh0ighaFOdSzn8qdt10Oa/8tl0jQht+Uf2vL8bgew6wHMAuPx+JqIzp1zz61Wa9Tr9cbMX8FaHOsQmEwmwxDCY6WGH0R01O/3PWutGQuTBohVhUZgBYhpvfcPzrnTpUaCRWAHmE6ne2VZRoTjFBDYAWLolBBEAP5CyLLssNPpPDHOZWsXJQbwG0II4T3P8yECgihACgjiAOgIKgDICGoAqAiqAIgI6gBoCCYAC4TZbHZHRCfVl7j2K9IMIIYOIeTe+3tLBFMABARzAGsECABLBBgAKwQoAAsEOABtBEgATQRYAC0EaAANBHgAaYQkACoIN0Q0WtoAfC3Lcn8wGHytszGYDMAcIfPe39YgXBRFcb3NAJdFUVxtNEAIYVXrv7Xb7YNut/u5sQCrwnPsHcDPAZLhY4+BBphvmPyY+TlafjFcYAG0dosgAbTCQw4BzfBwANrhoQAswsMAWIWHALAMbw5gHd4UACG8GUA8RIXwv6AJwKoTZJzL2//8KlRdCaKFV+0BiOHVAFDDqwAghxcHQA8vCpBCeDGAVMKLAKQUXgSg7sKE1SKnyYKIdSFUc2congSDORleByIKgB5eZAhUrs29ENEZ8o0xEYAm4w7pGdYhgBSsaV12AE2lNvW5b+m8cV+Fl9ThAAAAAElFTkSuQmCC) right no-repeat;
+  background-size: 16px;
+}
+
+.location text {
+  display: inline-block;
+  width: 90%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@keyframes myfirst {
+  0% {
+    background: red;
+  }
+
+  25% {
+    background: yellow;
+  }
+
+  50% {
+    background: blue;
+  }
+
+  100% {
+    background: green;
+  }
+}
+
+.tips {
+  position: fixed;
+  top: 50%;
+  animation: myfirst 1s infinite;
+}
+
+.details_info {
+  margin-top: 20px;
+}
+
+.details_info>view {
+  margin: 12px 0;
+}
+
+.details_info image {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.details_info text {
+  vertical-align: middle;
+  font-size: 16px;
+}
+.images_wrapper{
+  display: flex;
+}
+.images_wrapper image{
+  height: 100px;
+  margin: 2px;
+}
+
+
+/* pages/welcome/welcome.wxss */
+
+/* 背景 */
+
+page {
+  background: radial-gradient(200% 100% at bottom center, #1b2947, #000);
+  /* background: radial-gradient(220% 100% at top center, #1b2947 30%, #75517d 65%, #e96f92 85%, #f7f7b6); */
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+@keyframes rotate {
+  0% {
+    transform: perspective(800px) rotateZ(0deg) rotateX(0deg) rotateY(0);
+  }
+
+  100% {
+    transform: perspective(800px) rotateZ(180deg) rotateX(0deg) rotateY(0deg);
+  }
+}
+
+@keyframes rotate2 {
+  0% {
+    transform: perspective(800px) rotateZ(180deg) rotateX(0deg) rotateY(0);
+  }
+
+  100% {
+    transform: perspective(800px) rotateZ(360deg) rotateX(0deg) rotateY(0deg);
+  }
+}
+
+.stars {
+  transform: perspective(800px);
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 0;
+  perspective-origin: 80% 100%;
+  left: 50%;
+  animation: rotate 30s infinite linear;
+}
+
+.stars2 {
+  transform: perspective(800px);
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 0;
+  perspective-origin: 80% 100%;
+  left: 50%;
+  animation: rotate2 30s infinite linear;
+}
+
+.star {
+  width: 2px;
+  height: 2px;
+  border-radius: 2px;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0 -900px;
+  transform: translate3d(0, 0, -900px);
+  backface-visibility: hidden;
+}
+
+/* 背景-结束 */
+
+.companyBox .one,.two,.three,.four,.five,.six,.seven{
+  margin-top: 50rpx;
+  color: #fff;
+  font-size: 40rpx;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/**动画一sideSlide*/
+.companyBox .one text {
+  opacity: 0;
+  transform: translate(-300px, 0) scale(0);
+  animation: sideSlide 0.5s forwards;
+}
+@keyframes sideSlide {
+  60% {
+    transform: translate(20px, 0) scale(1);
+    color: #fff;
+  }
+
+  80% {
+    transform: translate(20px, 0) scale(1);
+    color: #fff;
+  }
+
+  99% {
+    transform: translate(0) scale(1.2);
+    color: #00f0ff;
+  }
+
+  100% {
+    transform: translate(0) scale(1);
+    opacity: 1;
+    color: #fff;
+  }
+}
+/**动画一sideSlide*/
+/* 动画二 leftRight*/
+ .companyBox .two text{
+  opacity: 0;
+  transform: translate(-300px, 0) scale(0);
+  animation: leftRight 0.5s forwards;
+} 
+@keyframes leftRight {
+  40% {
+    transform: translate(50px, 0) scale(.7);
+    opacity: 1;
+    color: #348c04;
+  }
+  60% {
+    color: #0f40ba;
+  }
+  80% {
+    transform: translate(0) scale(2);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0) scale(1);
+    opacity: 1;
+  }
+}
+/* 动画二 leftRight*/
+/* 动画三revolveScale */
+ .companyBox .three text{
+  opacity: 0;
+  transform: translate(-150px, -50px) rotate(-180deg) scale(3);
+  animation: revolveScale .4s forwards;
+} 
+
+@keyframes revolveScale {
+  60% {
+    transform: translate(20px, 20px) rotate(30deg) scale(.3);
+  }
+  100% {
+    transform: translate(0) rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+/* 动画三revolveScale */
+/* 动画四 */
+.companyBox .four text{
+  /* color: #a5cb21; */
+  opacity: 0;
+  transform: translate(200px, -100px) scale(2);
+  animation: ballDrop .3s forwards;
+}
+
+@keyframes ballDrop {
+  60% {
+    transform: translate(0, 20px) rotate(-180deg) scale(.5);
+  }
+  100% {
+    transform: translate(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+/* 动画四 */
+/* 动画五 */
+.companyBox .five text {
+  color: #dd3f0f;
+  opacity: 0;
+  transform: translate(0, -100px) rotate(360deg) scale(0);
+  animation: dropVanish .5s forwards;
+}
+
+@keyframes dropVanish {
+  30% {
+    transform: translate(0, -50px) rotate(180deg) scale(1);
+  }
+  50% {
+    transform: translate(0, 20px) scale(.8) rotate(0deg);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(-100px, -100px) scale(1.5) rotate(-180deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* 动画五 */
+/* 动画六-twister */
+.companyBox .six text {
+  color: #ddb40f;
+  opacity: 0;
+  transform: rotate(-180deg) translate(150px, 0);
+  animation: twister .5s forwards;
+}
+
+@keyframes twister {
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(0deg) translate(0);
+    opacity: 1;
+  }
+}
+/* 动画六-结束twister */
+/* 动画七revolveDrop */
+.companyBox .seven text {
+  color: #8d6a00;
+  opacity: 0;
+  transform: translate(0, -100px) rotate(360deg) scale(0);
+  animation: revolveDrop .3s forwards;
+}
+
+@keyframes revolveDrop {
+  30% {
+    transform: translate(0, -50px) rotate(180deg) scale(1);
+  }
+  60% {
+    transform: translate(0, 20px) scale(.8) rotate(0deg);
+  }
+  100% {
+    transform: translate(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+/* 动画七revolveDrop */
+.animate text:nth-child(1){
+ animation-delay: .1s;
+}
+.animate text:nth-child(2){
+ animation-delay: .2s;
+}
+.animate text:nth-child(3){
+ animation-delay: .3s;
+}
+.animate text:nth-child(4){
+ animation-delay: .4s;
+}
+.animate text:nth-child(5){
+ animation-delay: .5s;
+}
+.animate text:nth-child(6){
+ animation-delay: .6s;
+}
+.animate text:nth-child(7){
+ animation-delay: .7s;
+}
+.animate text:nth-child(8){
+ animation-delay: .8s;
+}
+.animate text:nth-child(9){
+ animation-delay: .9s;
+}
+.animate text:nth-child(10){
+ animation-delay: 1s;
+}

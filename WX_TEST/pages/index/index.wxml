@@ -1,0 +1,72 @@
+<!--index.wxml-->
+<view class="main">
+  <view class="stars">
+    <block wx:for="{{stararray}}" wx:key="stararray" wx:for-item="item" wx:for-index="index">
+      <view class="star" style="transform-origin: 0px 0px {{item.curR}}px; transform: translate3d(0px, 0px, {{item.curR}}px) rotateY({{item.rotateY}}deg) rotateX({{item.rotateX}}deg) scale({{item.s}}, {{item.s}});"></view>
+    </block>
+  </view>
+  <view class="stars2">
+    <block wx:for="{{stararray}}" wx:key="stararray" wx:for-item="item" wx:for-index="index">
+      <view class="star" style="transform-origin: 0px 0px {{item.curR}}px; transform: translate3d(0px, 0px, {{item.curR}}px) rotateY({{item.rotateY}}deg) rotateX({{item.rotateX}}deg) scale({{item.s}}, {{item.s}});"></view>
+    </block>
+  </view>
+
+
+  <view class='companyBox'>
+    <view class='h1 animate one'>
+      <text>珠</text>
+      <text>海</text>
+      <text>后</text>
+      <text>谱</text>
+      <text>音</text>
+      <text>乐</text>
+      <text>教</text>
+      <text>育</text>
+    </view>
+    <view class='industry'>
+    </view>
+    <image src='../../images/logo.jpg' class='logo'></image>
+  </view>
+  <view class='server'>
+    <image src='../../images/ask.png'></image>
+    <text>咨询</text>
+    <text class='small_size'>微信：guoyangdan520520\n\t点击扫码添加</text>
+    <image src='../../images/ewm.png' class='addme' bindtap='addme'></image>
+  </view>
+  <view class='details_info'>
+    <view class='location' bindtap='map'>
+      <image src='../../images/location.png'></image>
+      <text>广东省珠海市香洲区岱山路乐士文化区3栋403后谱音乐</text>
+    </view>
+    <view>
+      <image src='../../images/time.png'></image>
+      <text>9:00-23:30（含周六、日）</text>
+    </view>
+    <view class='phone' bindtap='call'>
+      <image src='../../images/phone.png'></image>
+      <text>13545012491（沈老师）</text>
+    </view>
+    <view>
+      <image src='../../images/picture.png'></image>
+      <text>门店照片</text>
+    </view>
+    <view class='tips' hidden='{{tipShow}}'>
+      <text>Σ(☉▽☉"a急什么，没弄完呢</text>
+    </view>
+  </view>
+  <view>
+    <view class='images_wrapper'>
+      <image src='http://simplast.top/temp/1.jpg' mode='aspectFill' bindtap='showBig' data-index='1'></image>
+      <image src='http://simplast.top/temp/2.jpg' mode='aspectFill' bindtap='showBig' data-index='2'></image>
+      <image src='http://simplast.top/temp/3.jpg' mode='aspectFill' bindtap='showBig' data-index='3'></image>
+      <image src='http://simplast.top/temp/8.jpg' mode='aspectFill' bindtap='showBig' data-index='8'></image>
+    </view>
+    <view class='images_wrapper'>
+      <image src='http://simplast.top/temp/4.jpg' mode='aspectFill' bindtap='showBig' data-index='4'></image>
+      <image src='http://simplast.top/temp/5.jpg' mode='aspectFill' bindtap='showBig' data-index='5'></image>
+      <image src='http://simplast.top/temp/6.jpg' mode='aspectFill' bindtap='showBig' data-index='6'></image>
+      <image src='http://simplast.top/temp/7.jpg' mode='aspectFill' bindtap='showBig' data-index='7'></image>
+    </view>
+  </view>
+
+</view>
