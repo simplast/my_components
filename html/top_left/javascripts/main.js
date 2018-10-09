@@ -1,3 +1,30 @@
+if (!Array.prototype.forEach) {
+    Array.prototype.forEach = function forEach(callback, thisArg) {
+        var T, k;
+
+        if (this == null) {
+            throw new TypeError("this is null or not defined");
+        }
+        var O = Object(this);
+        var len = O.length >>> 0;
+        if (typeof callback !== "function") {
+            throw new TypeError(callback + " is not a function");
+        }
+        if (arguments.length > 1) {
+            T = thisArg;
+        }
+        k = 0;
+
+        while (k < len) {
+            var kValue;
+            if (k in O) {
+                kValue = O[k];
+                callback.call(T, kValue, k, O);
+            }
+            k++;
+        }
+    };
+}
 $(document).ready(function() {
     //以下为左侧菜单相关
     // 左侧菜单列表测试数据。请保持格式一致
@@ -445,7 +472,7 @@ $(document).ready(function() {
         }
     };
     Multi_menu(menu_info, menu_wrapper);
-    // 设置滚动条
+    // 设置滚动条;
     var has_scroll_bar = false;
     var outer_h = $("#scroll_control").height();
     $(".has_level_2").click(function(e) {
@@ -455,10 +482,10 @@ $(document).ready(function() {
             if (!has_scroll_bar && outer_h < inner_h + 6) {
                 has_scroll_bar = true;
                 $("#scroll_control").niceScroll({
-                    cursorcolor: "rgba(35, 99, 140, 0.88)",
+                    cursorcolor: "#106e9a",
                     zIndex: 1,
                     cursorwidth: "6px",
-                    background: "rgba(250,250,250,0.68)",
+                    background: "#a2c9ea",
                     cursorborderradius: 15,
                     cursorborder: "1px solid #1b5173",
                     hidecursordelay: 800

@@ -1,23 +1,42 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta chdarset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-ssCompatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        #snake_wrapper {
+            width: 500px;
+            position: absolute;
+            height: 500px;
+            margin: 0 auto;
+            background: #f1f1f1;
+            overflow: hidden;
+        }
 
+        #snake_wrapper>span {
+            position: absolute;
+            background: #ccc;
+            width: 5%;
+            height: 5%;
+            display: inline-block;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="box">
-        <span>456</span>
-        <div style="display:inline-block;font-size: 0">
-            <img src="https://www.baidu.com/img/bd_logo1.png" alt="" style="vertical-align:middle">
-        <span style="font-size:12px">456</span>
-
-        </div>
+    <div id="snake_wrapper">
+        <span></span>
     </div>
+    <script>
+        function getSize() {
+            document.getElementById('snake_wrapper').innerText = '屏幕宽度:' + window.screen.width + 'px' + '\n屏幕高度:' + window.screen.height + 'px' + '\n\n浏览器内部宽度:' + window.innerWidth + 'px' + '\n浏览器内部高度:' + window.innerHeight + 'px'
+        }
+        getSize();
+        window.onresize = function () { getSize() };
+    </script>
 </body>
 
 </html>
