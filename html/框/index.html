@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .details_wrapper {
+            position: relative;
+            width: 375px;
+            height: 250px;
+            padding: 6px;
+            background: url(./bg.png) no-repeat left center;
+            background-size: contain;
+        }
+
+
+        .details_wrapper h2 {
+            margin: 0;
+            font-size: 12px;
+            line-height: 20px;
+            font-weight: normal;
+            padding-left: 15px;
+        }
+
+        .title_wrapper {
+            position: relative;
+        }
+
+        .close {
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            border: 0;
+            outline: 0;
+            background: url(./close.png) no-repeat center;
+            background-size: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="details_wrapper">
+        <div class="title_wrapper">
+            <h2>视频简要信息</h2>
+            <button class="close">
+            </button>
+        </div>
+        <div style="height: 230px">
+            <!-- 摄像头信息 -->
+        </div>
+    </div>
+</body>
+
+</html>
