@@ -13,8 +13,9 @@ var server = http.createServer(function(req, res) {
     var url = req.url;
     fs.readFile(extractFilePath(url), function(err, data) {
         if (err) {
-            handleError(res)
+            handleError(res);
         } else {
+            res.setHeader("Content-Type", "text/html");
             res.end(data);
         }
     });
