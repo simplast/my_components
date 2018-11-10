@@ -19,11 +19,19 @@
         <span>
             <img src="./images/test2.png" alt="">
         </span>
+        <input type="text" id="test">
     </div>
 
     <script src="js/viewer.min.js"></script>
     <script>
         var viewer = new Viewer(document.getElementById('project_img'));
+
+        document.getElementById('test').oninput = function (e) {
+            console.log('input now');
+        }
+        window.addEventListener('keydown', function (e) {
+            console.log('key_down');
+        }, true)
     </script>
 
 

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <script type="text/javascript" src="./jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./main.css" />
+        <title>视频信息</title>
+    </head>
+    <body>
+        <div class="video">
+            <div class="video_control">
+                <div class="video_control_path">
+                    <h2>路数设置</h2>
+                    <div>
+                        <ol class="progress-wrap">
+                            <li class="progress-one">
+                                <div class="progress-line"></div>
+                                <div class="progress-content">
+                                    <span
+                                        class="progress-number"
+                                        id="path_one"
+                                    ></span>
+                                    <span class="progress-text">1路</span>
+                                </div>
+                            </li>
+                            <li class="progress-two">
+                                <div class="progress-line"></div>
+                                <div class="progress-content">
+                                    <span
+                                        class="progress-number"
+                                        id="path_two"
+                                    ></span>
+                                    <span class="progress-text">4路</span>
+                                </div>
+                            </li>
+                            <li class="progress-three">
+                                <div class="progress-line"></div>
+                                <div class="progress-content">
+                                    <span
+                                        class="progress-number"
+                                        id="path_three"
+                                    ></span>
+                                    <span class="progress-text">8路</span>
+                                </div>
+                            </li>
+                            <li class="progress-four">
+                                <div class="progress-content">
+                                    <span
+                                        class="progress-number"
+                                        id="path_four"
+                                    ></span>
+                                    <span class="progress-text">16路</span>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="video_control_channer">
+                    <h2>通道选择 <span class="more">更多∨</span></h2>
+                    <ul class="js_channer_ul">
+                        <li>通道一</li>
+                        <li>通道一</li>
+                        <li>通道一</li>
+                        <li>通道一</li>
+                        <li>通道一</li>
+                        <li>通道一</li>
+                        <li>通道一</li>
+                        <li>通道一</li>
+                        <li>通道一</li>
+                        <li>通道一</li>
+                        <li>通道一</li>
+                        <li>通道一</li>
+                        <li>通道一</li>
+                        <li>通道一</li>
+                    </ul>
+                    <div>
+                        <ul>
+                            <li>左上</li>
+                            <li>右上</li>
+                        </ul>
+                        <div class="pannel">
+                            <img src="./control_bg.png" alt="" />
+                            <button class="c_top"></button>
+                            <button class="c_bottom"></button>
+                            <button class="c_left"></button>
+                            <button class="c_right"></button>
+                        </div>
+                        <ul>
+                            <li>左下</li>
+                            <li>右下</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="video_control_length">
+                    <h2>步长设置</h2>
+                    <div>
+                        <ol class="progress-wrap">
+                            <li class="progress-one">
+                                <div class="progress-line"></div>
+                                <div class="progress-content">
+                                    <span
+                                        class="progress-number"
+                                        id="foot_one"
+                                    ></span>
+                                    <span class="progress-text">1步</span>
+                                </div>
+                            </li>
+                            <li class="progress-two">
+                                <div class="progress-line"></div>
+                                <div class="progress-content">
+                                    <span
+                                        class="progress-number"
+                                        id="foot_two"
+                                    ></span>
+                                    <span class="progress-text">2步</span>
+                                </div>
+                            </li>
+                            <li class="progress-three">
+                                <div class="progress-line"></div>
+                                <div class="progress-content">
+                                    <span
+                                        class="progress-number"
+                                        id="foot_three"
+                                    ></span>
+                                    <span class="progress-text">3步</span>
+                                </div>
+                            </li>
+                            <li class="progress-four">
+                                <div class="progress-content">
+                                    <span
+                                        class="progress-number"
+                                        id="foot_four"
+                                    ></span>
+                                    <span class="progress-text">4步</span>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="video_data"><!-- 视频窗口 --></div>
+        </div>
+        <script>
+            var currentColor = "#488fe8";
+            var unfinishedColor = "#b9b9b9";
+            var finishedColor = "#488fe8";
+            // 路数设置的四个按钮
+            $("#path_one").click(function() {
+                $(this)
+                    .css("background-color", currentColor)
+                    .next("span")
+                    .css("color", currentColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", unfinishedColor);
+
+                $("#path_two")
+                    .css("background-color", unfinishedColor)
+                    .next("span")
+                    .css("color", unfinishedColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", unfinishedColor);
+
+                $("#path_three")
+                    .css("background-color", unfinishedColor)
+                    .next("span")
+                    .css("color", unfinishedColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", unfinishedColor);
+
+                $("#path_four")
+                    .css("background-color", unfinishedColor)
+                    .next("span")
+                    .css("color", unfinishedColor);
+            });
+
+            $("#path_two").click(function() {
+                $(this)
+                    .css("background-color", currentColor)
+                    .next("span")
+                    .css("color", currentColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", unfinishedColor);
+
+                $("#path_one")
+                    .css("background-color", finishedColor)
+                    .next("span")
+                    .css("color", finishedColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", currentColor);
+
+                $("#path_three")
+                    .css("background-color", unfinishedColor)
+                    .next("span")
+                    .css("color", unfinishedColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", unfinishedColor);
+
+                $("#path_four")
+                    .css("background-color", unfinishedColor)
+                    .next("span")
+                    .css("color", unfinishedColor);
+            });
+
+            $("#path_three").click(function() {
+                $(this)
+                    .css("background-color", currentColor)
+                    .next("span")
+                    .css("color", currentColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", unfinishedColor);
+
+                $("#path_one")
+                    .css("background-color", finishedColor)
+                    .next("span")
+                    .css("color", finishedColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", finishedColor);
+
+                $("#path_two")
+                    .css("background-color", finishedColor)
+                    .next("span")
+                    .css("color", finishedColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", currentColor);
+
+                $("#path_four")
+                    .css("background-color", unfinishedColor)
+                    .next("span")
+                    .css("color", unfinishedColor);
+            });
+
+            $("#path_four").click(function() {
+                $(this)
+                    .css("background-color", currentColor)
+                    .next("span")
+                    .css("color", currentColor);
+
+                $("#path_one")
+                    .css("background-color", finishedColor)
+                    .next("span")
+                    .css("color", finishedColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", finishedColor);
+
+                $("#path_two")
+                    .css("background-color", finishedColor)
+                    .next("span")
+                    .css("color", finishedColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", finishedColor);
+
+                $("#path_three")
+                    .css("background-color", finishedColor)
+                    .next("span")
+                    .css("color", finishedColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", currentColor);
+            });
+
+            // 步长的四个按钮
+            $("#foot_one").click(function() {
+                $(this)
+                    .css("background-color", currentColor)
+                    .next("span")
+                    .css("color", currentColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", unfinishedColor);
+
+                $("#foot_two")
+                    .css("background-color", unfinishedColor)
+                    .next("span")
+                    .css("color", unfinishedColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", unfinishedColor);
+
+                $("#foot_three")
+                    .css("background-color", unfinishedColor)
+                    .next("span")
+                    .css("color", unfinishedColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", unfinishedColor);
+
+                $("#foot_four")
+                    .css("background-color", unfinishedColor)
+                    .next("span")
+                    .css("color", unfinishedColor);
+            });
+
+            $("#foot_two").click(function() {
+                $(this)
+                    .css("background-color", currentColor)
+                    .next("span")
+                    .css("color", currentColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", unfinishedColor);
+
+                $("#foot_one")
+                    .css("background-color", finishedColor)
+                    .next("span")
+                    .css("color", finishedColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", currentColor);
+
+                $("#foot_three")
+                    .css("background-color", unfinishedColor)
+                    .next("span")
+                    .css("color", unfinishedColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", unfinishedColor);
+
+                $("#foot_four")
+                    .css("background-color", unfinishedColor)
+                    .next("span")
+                    .css("color", unfinishedColor);
+            });
+
+            $("#foot_three").click(function() {
+                $(this)
+                    .css("background-color", currentColor)
+                    .next("span")
+                    .css("color", currentColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", unfinishedColor);
+
+                $("#foot_one")
+                    .css("background-color", finishedColor)
+                    .next("span")
+                    .css("color", finishedColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", finishedColor);
+
+                $("#foot_two")
+                    .css("background-color", finishedColor)
+                    .next("span")
+                    .css("color", finishedColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", currentColor);
+
+                $("#foot_four")
+                    .css("background-color", unfinishedColor)
+                    .next("span")
+                    .css("color", unfinishedColor);
+            });
+
+            $("#foot_four").click(function() {
+                $(this)
+                    .css("background-color", currentColor)
+                    .next("span")
+                    .css("color", currentColor);
+
+                $("#foot_one")
+                    .css("background-color", finishedColor)
+                    .next("span")
+                    .css("color", finishedColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", finishedColor);
+
+                $("#foot_two")
+                    .css("background-color", finishedColor)
+                    .next("span")
+                    .css("color", finishedColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", finishedColor);
+
+                $("#foot_three")
+                    .css("background-color", finishedColor)
+                    .next("span")
+                    .css("color", finishedColor)
+                    .parent("div")
+                    .prev("div.progress-line")
+                    .css("background-color", currentColor);
+            });
+
+            // 通道点击效果
+            $(".js_channer_ul li").click(function() {
+                $(".js_channer_ul li").removeClass("active"); //如果为多选就注释本行
+                $(this).toggleClass("active");
+            });
+
+            // 展开更多通道
+            $(".more").click(function() {
+                $(".js_channer_ul").toggleClass("active");
+            });
+        </script>
+    </body>
+</html>

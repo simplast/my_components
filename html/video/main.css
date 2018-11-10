@@ -1,0 +1,217 @@
+.video * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: MicrosoftYaHei;
+}
+.progress-wrap {
+    padding: 0px;
+    width: 100%;
+    height: 63px;
+}
+
+.progress-wrap li {
+    display: inline-block;
+    list-style: none;
+    float: left;
+    width: 25%;
+    height: 30px;
+    position: relative;
+}
+
+.progress-wrap .progress-line {
+    background-color: #f1f1f1;
+    border: 1px solid #d8d8d8;
+    position: absolute;
+    height: 6px;
+    width: 100%;
+    top: 9px;
+    margin-left: 2px;
+    transition: background-color 2s linear;
+    -moz-transition: background-color 2s linear;
+    -webkit-transition: background-color 1s linear;
+    -o-transition: background-color 2s linear;
+}
+
+.progress-wrap .progress-content {
+    position: absolute;
+    text-align: center;
+}
+
+.progress-wrap .progress-content .progress-number {
+    display: inline-block;
+    *zoom: 1;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    color: #fff;
+    border-radius: 50%;
+    border: 1px solid #f1f1f1;
+    background-color: #f1f1f1;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2) inset;
+    cursor: pointer;
+}
+
+.progress-wrap .progress-content .progress-text {
+    position: absolute;
+    font-size: 12px;
+    width: 30px;
+    top: 31px;
+    color: #b9b9b9;
+}
+.video {
+    position: relative;
+}
+.video_control {
+    position: absolute;
+    padding: 10px 23px;
+    width: 280px;
+    height: 100%;
+    padding-top: 0;
+}
+.video_data {
+    margin-left: 300px;
+    padding: 10px;
+    height: 486px;
+    background-color: #f1f1f1;
+}
+.progress-four .progress-content {
+    right: 0;
+    margin-right: 20px;
+}
+.progress-three .progress-line {
+    width: 200%;
+}
+.video h2 {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 15px;
+    color: #333;
+}
+.video_control_channer {
+    position: relative;
+}
+.video_control_channer ul {
+    padding: 4px;
+    list-style-type: none;
+    text-align: justify;
+    max-height: 81px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    transition: all 0.36s cubic-bezier(0, 0, 0, 1.13);
+}
+.video_control_channer li {
+    display: inline-block;
+    margin-bottom: 5px;
+    line-height: 31px;
+    font-size: 12px;
+    padding: 0 6px;
+    cursor: pointer;
+    border: 1px solid #f9f9f9;
+}
+.video_control_channer li:hover {
+    color: #488fe8;
+}
+.video_control_channer > div ul {
+    border: none;
+    text-align: justify;
+    text-align-last: justify;
+    z-index: 1;
+    position: relative;
+}
+.video_control_channer > div ul li {
+    user-select: none;
+    width: 20%;
+    text-align: center;
+    text-align-last: center;
+    color: #488fe8;
+    border-radius: 5px;
+    border: 1px solid #488fe8;
+}
+.video_control_channer > div {
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 99px;
+}
+.pannel button {
+    position: absolute;
+
+    cursor: pointer;
+
+    outline: none;
+
+    border: none;
+
+    background: none;
+}
+
+.pannel .c_top {
+    width: 100px;
+    left: 67px;
+    height: 28px;
+}
+.pannel .c_bottom {
+    width: 100px;
+    left: 67px;
+    height: 28px;
+    bottom: 0;
+}
+.pannel .c_left {
+    width: 34px;
+    left: 57px;
+    height: 61px;
+    bottom: 29px;
+}
+.pannel .c_right {
+    width: 34px;
+    right: 57px;
+    height: 61px;
+    bottom: 29px;
+}
+.pannel {
+    position: relative;
+    text-align: center;
+    margin: -20px 0;
+}
+.progress-wrap li.active .progress-line {
+    background-color: #488fe8;
+}
+.progress-wrap li.active .progress-text {
+    color: #488fe8;
+}
+.progress-wrap li.active .progress-number {
+    background-color: #488fe8;
+}
+.progress-wrap li.active + li .progress-number {
+    background-color: #488fe8;
+}
+.progress-wrap li.active + li .progress-text {
+    color: #488fe8;
+}
+.video_control_channer li.active{
+    color: #488fe8;
+    border-radius: 5px;
+    border: 1px solid #488fe8;
+}
+.video_control_channer .more{
+    float: right;
+    left: 100%;
+    top: 36px;
+    font-size: 12px;
+    line-height: 21px;
+    cursor: pointer;
+    user-select: none;
+}
+.video_control_channer .more:hover{
+    color: #488fe8;
+}
+ul.js_channer_ul.active{
+    max-height: 400px;
+}
+.js_channer_ul{
+    position: absolute;
+    z-index: 1;
+    background: #f9f9f9;
+    width: 100%;
+}
