@@ -1,40 +1,43 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>JS/jQuery图片查看器viewer.js演示-默认效果_dowebok</title>
-    <link rel="stylesheet" href="css/viewer.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
     <style>
-
-    </style>
+        .login-main >a{
+            display:block;
+            color: #fff;
+            background-color: #0897E1;
+            box-shadow: 1px 1px 10px #ccc;
+            text-decoration: none;
+            line-height: 27px;
+            font-size:12px ;
+            padding: 0 45px 0 4px;
+            border-radius: 4px;
+        }
+        .login-main >a:hover{
+            background-color: rgb(2, 129, 192);
+        }
+        .login-main >a + a {
+            margin-top: 14px;
+        }
+        .login-main >a.clicked{
+            background-color: #0078B8;
+        }
+        </style>
 </head>
 
 <body>
-    <h1>默认效果</h1>
-    <div class="project_img" id="project_img">
-        <span>
-            <img src="./images/test1.png" alt="">
-        </span>
-        <span>
-            <img src="./images/test2.png" alt="">
-        </span>
-        <input type="text" id="test">
+    <div class="login-main">
+        <a href="#">抹茶魔宠欧凡萨拉;dfk</a>
+        <a href="#" class="clicked">抹茶魔宠欧凡萨拉</a>
+        <a href="#">抹茶魔宠欧凡萨拉</a>
+        <a href="#">抹茶魔宠欧凡萨拉</a>
+        <a href="#">抹茶魔宠欧凡萨拉</a>
     </div>
-
-    <script src="js/viewer.min.js"></script>
-    <script>
-        var viewer = new Viewer(document.getElementById('project_img'));
-
-        document.getElementById('test').oninput = function (e) {
-            console.log('input now');
-        }
-        window.addEventListener('keydown', function (e) {
-            console.log('key_down');
-        }, true)
-    </script>
-
-
 
 </body>
 
