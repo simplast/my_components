@@ -1,9 +1,18 @@
 import axios from 'axios';
 
 const Util = {
-    imgPath: 'http://127.0.0.1:8011/img/',
+    imgPath: 'http://127.0.0.1:8081/img/',
     apiPath: 'http://127.0.0.1:8010/'
-};
+}
+
+Util.ajax = axios.create({
+    baseURL: Util.apiPath
+})
+
+Util.ajax.interceptors.response.use(res => {
+    return res.data;
+})
+
 
 // 获取今天时间戳
 Util.getTodayTime = function () {
@@ -27,15 +36,5 @@ Util.prevDay = function (timestamp = (new Date()).getTime()) {
         : date.getDate();
     return year + '' + month + '' + day;
 };
-
-// Ajax 通用配置
-Util.ajax = axios.create({
-    baseURL: Util.apiPath
-});
-
-// 添加响应拦截器
-Util.ajax.interceptors.response.use(res => {
-    return res.data;
-});
 
 export default Util;

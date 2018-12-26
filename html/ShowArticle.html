@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <script src="/js/interact/testScan/testShow.js"></script>
+</head>
+
+<style type="text/css">
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    html{
+        height: 100%;
+    }
+    body {
+        width: 100%;
+        height: 100%;
+        background: #f4f4f4;
+    }
+
+    .header {
+        width: 100%;
+
+    }
+
+    .contents {
+        width: 100%;
+        background-color: #F8F8F8;
+        padding: 2px 30px;
+        box-sizing: border-box;
+    }
+
+    .contents ul li {
+        font-size: 29px;
+        list-style: none;
+        text-align: center;
+        margin: 35px 0;
+    }
+
+    .contents ul li span {
+        background-color: #FFFFFF;
+    }
+
+    .footer {
+        width: 100%;
+        margin-top: 53px;
+    }
+
+    .title {
+        font-size: 56px;
+        background-color: #FE7D05;
+        color: white;
+        line-height: 150px;
+        text-align: center;
+    }
+
+    .span-left {
+        color: #BFB7B0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    #haclick {
+        width: 93%;
+        margin: 0 auto;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        background-color: #FE7D05;
+        line-height: 105px;
+        font-size: 40px;
+        border-radius: 10px;
+        color: white;
+    }
+
+    #diylick {
+        width: 93%;
+        text-decoration: none;
+        margin: 10px auto 0;
+        display: block;
+        text-align: center;
+        background-color: #717171;
+        line-height: 105px;
+        font-size: 40px;
+        border-radius: 10px;
+        color: white;
+    }
+   .lefts{
+       text-align: right;
+       font-size: 35px;
+       color: #A5A5A5;
+       width: 35%;
+   }
+    table{
+        border-collapse: collapse;
+        font-size: 35px;
+        color: black;
+        text-align: left;
+        width: 100%;
+    }
+    table tr {
+        border-bottom:1px solid #B7B9B8;
+        height: 100px;
+
+    }
+    #tis{
+    }
+    .footer_menu{width: 65%;font-size: 0;margin: 18px auto;}
+    .footer_menu a{
+        font-size: 40px;
+        color: #E6923C;
+    }
+    .footer_menu li{display: inline-block;width: 33%;}
+</style>
+<body>
+<div id="all">
+    <div class="header">
+        <div class="title">
+            卷烟个性化定制研究
+            <a  id="Scan" style="display:none" th:text="${scanId}"></a>
+        </div>
+    </div>
+    <div class="contents">
+        <ul>
+            <li><span th:text="${code}" class="code" style="font-size: 40px;"> 显示编码的位置</span></li>
+            <li><img src="./test.jpg"/></li>
+            <li id="tis"><a href="#" style="color: #E6923C; font-size: 30px;" onclick="LookSmallBag()">查看小盒编码</a></li>
+        </ul>
+        <table border frame=above rules=none>
+            <tbody>
+                <tr>
+                    <td class="lefts">卷烟规格:</td><td class="ProBrand" style="padding-left: 30px;"  th:text="${Brand}"></td>
+                </tr>
+                <tr>
+                    <td class="lefts">制造商:</td><td class="manufacturers" style="padding-left: 30px;"  th:text="${Manufactures}"></td>
+                </tr>
+                <tr>
+                    <td class="lefts">生产单位:</td><td class="ProUnits" style="padding-left: 30px;"  th:text="${ProUnits}"></td>
+                </tr>
+                <tr>
+                    <td class="lefts">生产时间:</td><td class="ProTime" style="padding-left: 30px;"  th:text="${ProTime}"></td>
+                </tr>
+                <tr>
+                    <td class="lefts">机台号:</td><td class="machineNum" style="padding-left: 30px;"  th:text="${machineNum}"></td>
+                </tr>
+                <tr>
+                    <td class="lefts">累计查询次数:</td>
+                    <td >
+                        <span class="ScanNum" style="padding-left: 30px;"  th:text="${scaNum}"></span>次
+                        <a style="color:#FE7D05;margin-left: 80px" onclick="details()">详情>></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lefts">是否个性化定制:</td><td style="padding-left: 30px;" >否</td>
+                </tr>
+      <!--          <tr style="padding-top:100px; ">
+                    <td></td><td style="margin-left: 323px;color:#E6923C;line-height: 40px;text-align: center " onclick="details()">详情>></td>
+                </tr>-->
+
+            </tbody>
+        </table>
+    </div>
+    <div class="footer">
+        <a href="javascript:void(0);" id="haclick" onclick="Validation() ">验证真伪</a>
+        <a href="javascript:void(0);" id="diylick" style="background-color:#717171;" onclick="diylick()">个性化定制</a>
+        <ul class="footer_menu">
+            <li><a href="#">[投诉建议]</a></li>
+            <li><a href="#">[投诉建议]</a></li>
+            <li><a href="#">[投诉建议]</a></li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/interact/testScan/testShow.js"></script>
+    <script type="application/javascript">
+        function LookSmallBag() {
+            var code = $(".code").text();
+            window.location.href = '/fm/articleDetails?code=' + code;
+        }
+        function details() {
+            var code = $(".code").text();
+            window.location.href = '/fm/details?code=' + code;
+        }
+
+        function diylick() {
+            var codeId = $(".code").text();
+            window.location.href = '/interact/code/chooseModel';
+        }
+
+        function Validation() {
+            var code = $(".code").text();
+            var scanId=$("#Scan").text();
+            window.location.href = '/fm/verify?code='+code+'&&scanId='+scanId;
+        }
+
+    </script>
+</div>
+</body>
+</html>
