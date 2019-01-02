@@ -15,7 +15,7 @@
             <form action="#">
                 <div>
                     <div>
-                        <input type="text" placeholder="搜工程名、保障房、边坡、供应站等等">
+                        <input type="text" placeholder="自定义搜索">
                     </div>
                     <select>
                         <option selected value="所在街道" disabled>所在街道</option>
@@ -31,11 +31,12 @@
                         <option value="宝龙">宝龙</option>
                         <option value="坪地">坪地</option>
                     </select>
+                    <span class="select_arrow">▼</span>
                 </div>
                 <input type="button" value="">
             </form>
         </div>
-        <div class="fliter">
+        <div class="fliter" onmouseleave="close_result(this)">
             <div class="condition">
                 <span id="all" onclick="toggle_display(this,'choose_box')">全部类型</span>
                 <span id="unfold" onclick="toggle_display(this,'result_box')">点击展开本范围项目列表</span>
@@ -194,7 +195,6 @@
                 </div>
             </div>
             <div class="result_list hide" id="result_box">
-                <a class="close" href="javascript:void(0)">×</a>
                 <h3>项目列表</h3>
                 <ul>
                     <li>
@@ -222,10 +222,8 @@
                     <ul class="pagination">
                         <li>
                             <span>
-                                <</span>
-                        </li>
-                        <li>
-                            <span class="active">1</span>
+                                <</span> </li> <li>
+                                    <span class="active">1</span>
                         </li>
                         <li>
                             <span>2</span>
@@ -250,15 +248,34 @@
                 </div>
             </div>
         </div>
-        <div style="position: absolute;top: 0;z-index: -1;">地图放这里</div>
+        <div class="map_wrapper">地图放这里
+
+
+
+        </div>
     </div>
 </body>
 <script>
+    // 鼠标移出范围，自动隐藏
+    function close_result(wrapper) {
+        var target_group = wrapper.getElementsByClassName('hide');
+        try {
+            wrapper.getElementsByClassName('f')[0].className = "";
+        } catch (e) {};
+        for (var x = 0; x < target_group.length; x++) {
+            target_group[x].style.display = 'none';
+        }
+    } 
+
     // 全部类型+点击展开本范围项目列表的点击事件
-    function toggle_display(self, id) {
+    function toggle_display(_this, id) {
+        var hasUnoldResult = document.getElementsByClassName('f')[0];
+        if (!!hasUnoldResult) {
+            hasUnoldResult.className = "";
+        }
         var o_div = document.getElementById(id);
         var status = o_div.style.display != "block" ? "block" : "none";
-        self.className = self.className === "f" ? "" : "f";
+        _this.className = _this.className === "f" ? "" : "f";
         o_div.style.display = status;
         if (o_div.nextElementSibling) {
             o_div.nextElementSibling.style.display = "none";
@@ -266,6 +283,7 @@
             o_div.previousElementSibling.style.display = "none";
         }
     }
+
     window.onload = function () {
         // 选项选择及切换事件
         var o_ul = document.getElementById("type_list").getElementsByTagName("li");
@@ -286,6 +304,7 @@
                 };
             }(x));
         }
+
     };
 </script>
 

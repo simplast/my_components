@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="map_search.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="info_window">
+        <h2 class="info_window_title">视频简要信息</h2>
+        <i class="info_window_triangle"></i>
+        <div class="info_window_video">
+            <div class="iw_video_menu">
+                <!-- 视频各种菜单 -->
+                <a href="#" class="menu_fullscreen"></a>
+                <ul class="menu_source_toggler" id="js_source_toggler">
+                    <li class="active">线路1</li>
+                    <li>线路1</li>
+                    <li>线路1</li>
+                </ul>
+                <ul class="menu_play_controler" id="js_play_controler">
+                    <li class="play_play" title="播放"></li>
+                    <li class="play_pause enable_click" title="暂停"></li>
+                </ul>
+            </div>
+            <div class="iw_video_main">
+                视频画面放在这个DIV里面
+            </div>
+        </div>
+        <div class="info_window_synopsis">
+            <h3>珠海市某某某某工程</h3>
+            <dl>
+                <dt>视频名称：</dt>
+                <dd>工地大门</dd>
+            </dl>
+        </div>
+        <a href="javascript:void(0)" class="info_window_close">×</a>
+    </div>
+    <script>
+        // 线路选择效果
+        var js_source_toggler = document.getElementById('js_source_toggler');
+        js_source_toggler.addEventListener('click', function (e) {
+            var source_current = this.getElementsByClassName('active')[0];
+            var t = e.target;
+            if (t != source_current && t != this) {
+                source_current.classList.remove('active');
+                e.target.classList.add('active');
+            }
+        });
+        // 播放和暂停按钮点击效果
+        var js_play_controler = document.getElementById('js_play_controler');
+        js_play_controler.addEventListener('click', function (e) {
+            if (e.target.classList.length != 1) {
+                var controler_btn = this.getElementsByTagName('li');
+                var current_btn = this.getElementsByClassName('enable_click')[0];
+                for (var i = 0; i < controler_btn.length; i++) {
+                    controler_btn[i].classList.add('enable_click'); //second console output
+                }
+                current_btn.classList.remove('enable_click');
+            }
+        })
+    </script>
+</body>
+
+</html>
