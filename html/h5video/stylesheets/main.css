@@ -1,0 +1,129 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+.wrapper--fullscreen {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    font-family: "Microsoft YaHei";
+}
+
+.wrapper--fullscreen {
+    background: url(../images/bg_login_main.jpg) no-repeat top left;
+    background-size: cover;
+    text-align: center;
+}
+
+.wrapper__video {
+    margin: 0 auto;
+    height: 100%;
+}
+
+.wrapper__video video {
+    height: 100%;
+    max-width: 100%;
+}
+
+.toggler {
+    height: 100px;
+    position: absolute;
+    z-index: 1;
+    bottom: 10%;
+    left: 0;
+    text-align: left;
+    cursor: pointer;
+}
+
+#fold {
+    height: 39px;
+    border: 1px solid #fff;
+    background: #295572;
+    transition: all 0.36s ease;
+    border-width: 1px 1px 1px 0;
+    border-radius: 0 6px 6px 0;
+}
+
+.toggler a {
+    background: rgba(255, 255, 255, 0.68);
+    color: #000;
+    font-size: 15px;
+    line-height: 2.5;
+    padding: 6px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #295675;
+    margin-left: -3px;
+}
+
+.toggler a:hover {
+    background-color: #fff;
+}
+
+.toggler>div {
+    max-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: all 0.36s ease;
+}
+
+.toggler>div.show {
+    max-width: 210px;
+}
+
+#fold.fold {
+    transform: rotate(180deg);
+    border-radius: 6px 0 0 6px;
+    border-width: 1px 0px 1px 1px;
+}
+
+.jump {
+    display: table;
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.jump>div {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.jump img {
+    cursor: pointer;
+}
+
+.jump a {
+    display: block;
+    margin: 10px;
+    color: #fff;
+}
+
+.details_set {
+    width: 80%;
+    margin: 30px auto 20px;
+    text-align: left;
+    color: #fff;
+}
+
+.details_set h2 {
+    margin: 20px 0 10px 0;
+}
+
+.details_set h1 {
+    text-align: center;
+}
+
+.details_set p {
+    text-indent: 2em;
+    line-height: 1.55;
+}
+
+.details_set ul {
+    list-style: circle;
+    margin-left: 2em;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./stylesheets/main.css">
+    <title>投屏</title>
+</head>
+
+<body>
+    <div class="wrapper--fullscreen">
+        <div class="wrapper__video">
+            <video id='video' src="./video/jsz.mp4" autoplay controls></video>
+        </div>
+        <div class="toggler">
+            <img src="./images/unfold.png" alt="" id="fold">
+            <div>
+                <a href="javascript:void(0)" data-source="./video/jsz.mp4">共建雄安新区金融科技城</a>
+            </div>
+            <div>
+                <a href="javascript:void(0)" data-source="http://www.w3school.com.cn/i/movie.ogg">建设者信息化综合管理平台</a>
+            </div>
+            <div>
+                <a href="javascript:void(0)" id="toNext">首页</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        var video = document.getElementById('video');
+        var a = document.querySelectorAll('[data-source]');
+        var next = document.getElementById('toNext');
+        var menuDiv = document.querySelectorAll('.toggler>div');
+
+        function changeVideo(a, i) {
+            video.src = a.dataset.source;
+            currentIndex = i;
+        }
+
+        function linkToNext() {
+            video.pause();
+            var time = video.currentTime;
+            location.href = "./index2.html?time=" + time + "&video=" + currentIndex;
+        }
+        var delayPlay = null;
+
+        function palyAfter30s(time, index) {
+            video.src = a[index].dataset.source;
+            video.currentTime = time;
+            video.pause();
+            delayPlay = setTimeout(function () {
+                video.play();
+            }, 30000);
+        }
+
+        function getUrlQuery(name, url) {
+            var pattern = new RegExp(`[\\?&#]${name}=([^&#]+)`, 'gi')
+            var ma = (url || location.search).match(pattern)
+            var strArr
+
+            if (ma && ma.length > 0) {
+                strArr = (ma[ma.length - 1]).split('=')
+                if (strArr && strArr.length > 1) {
+                    return strArr[1]
+                }
+                return ''
+            }
+        }
+        var currentIndex = 0;
+
+        function toggleVideoSrc(e) {
+            currentIndex++;
+            if (!a[currentIndex]) {
+                currentIndex = 0;
+            }
+            video.src = a[currentIndex].dataset.source;
+        }
+        a.forEach(function (e, i) {
+            e.addEventListener('click', function () {
+                changeVideo(this, i)
+            });
+        })
+        next.addEventListener('click', linkToNext);
+        video.addEventListener('ended', toggleVideoSrc, false);
+        document.addEventListener('click', function () {
+            delayPlay && clearTimeout(delayPlay);
+        })
+
+        document.querySelector('#fold').addEventListener('click', function () {
+            this.classList.toggle('fold');
+            menuDiv.forEach(function (dom) {
+                dom.classList.toggle('show');
+            })
+        })
+        window.onload = function () {
+            var video_src = getUrlQuery('video', location.href);
+            var time = getUrlQuery('time', document.referrer);
+            var index = getUrlQuery('video', document.referrer);
+            if (typeof video_src !== 'undefined') {
+                video.src = a[video_src].dataset.source;
+            } else {
+                time && palyAfter30s(time, index);
+            }
+        }
+    </script>
+</body>
+
+</html>

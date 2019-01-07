@@ -47,6 +47,7 @@ body,
     font-weight: normal;
     width: 100%;
     top: -150px;
+    left: 0;
     font-size: 26px;
 }
 
@@ -99,7 +100,9 @@ body,
 .footer .beian {
     margin-left: 20px;
 }
-
+.footer a{
+    color: #555;
+}
 .footer .beian img {
     margin-bottom: -3px;
     width: 18px;

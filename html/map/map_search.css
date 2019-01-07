@@ -486,7 +486,10 @@ ul.pagination+span>span {
     background: url(./images/fullscreen.png) no-repeat;
     background-size: 100%;
 }
-
+.menu_source_toggler.for_object{
+    position: relative;
+    margin: 5px 0;
+}
 .menu_source_toggler {
     position: absolute;
     font-size: 12px;
